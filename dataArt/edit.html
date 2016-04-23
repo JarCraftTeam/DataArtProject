@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit question</title>
+    <link href="css/all.css" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+
+</head>
+<body>
+    <header>
+        <strong><a href="#" title="Main">Logo</a></strong>
+        <div>
+            <a href="#" title="sing in">Вход</a>|
+            <a href="#" title="sing up">Регистрация</a>
+        </div>
+    </header>
+    <aside>
+        <ul>
+            <li><a href="#">Вопрос 1</a>
+                <a href="#">Вопрос 2</a>
+                <a href="#">Вопрос 3</a>
+                <a href="#">Вопрос 4</a>
+            </li>
+        </ul>
+    </aside>
+    <main>
+        <form name="newQuestion" enctype="multipart/form-data" method="post">
+            <p> Название теста:
+                <input type="text"/>
+            </p>
+            <p> Тест будет открыт
+            <input type="date"/>
+            </p>
+            <p> Тест будет закрыт
+                <input type="date"/>
+            </p>
+            <div class="question">
+                <div> <p>Вопрос</p>
+                    <textarea></textarea>
+                    <div class="mask">
+                        <p> Добавить изображение </p>
+                        <input class="fileInputText" type="text" disabled>
+                        <button class="send-file">Обзор</button>
+                    </div>
+                    <input  class="custom-img" type="file" accept="image/jpeg,image/png,image/gif/" name="answer">
+
+                    <p>Выбрите тип вопроса:</p>
+                    <select>
+                        <option value="radio">Один правильный ответ</option>
+                        <option value="checkbox">Несколько правильных ответов</option>
+                        <option value="text">Открытый ответ</option>
+                    </select>
+                </div>
+                    <p>Ответы:</p>
+                    <input type="text"/>
+                <div class="mask">
+                    <p> Добавить изображение </p>
+                    <input class="fileInputText" type="text" disabled>
+                    <button class="send-file">Обзор</button>
+                </div>
+                <input  class="custom-img" type="file" accept="image/jpeg,image/png,image/gif/" name="answer">
+
+                <p>Добавить ответ</p>
+
+            </div>
+            <button>Добавить вопрос</button>
+            <button type="submit">Готово</button>
+
+            <!--<div class="mask">
+                <p> Добавить изображение </p>
+                <input class="fileInputText" type="text" disabled>
+                <button class="send-file">Обзор</button>
+            </div>
+            <input  class="custom-img" type="file" name="answer">
+            -->
+
+        </form>
+    </main>
+</body>
+</html>
