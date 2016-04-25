@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+	<session-factory>
+
+		<!-- Database connection settings -->
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="connection.url">jdbc:mysql://localhost:3306/dataart_project</property>
+		<property name="connection.username">da_user</property>
+		<property name="connection.password">010203</property>
+
+		<!-- SQL dialect -->
+		<property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+
+
+		<!-- Echo all executed SQL to stdout -->
+		<property name="show_sql">true</property>
+
+		<!-- <property name="hbm2ddl.auto">create</property> -->
+
+		<mapping class="org.project.model.entity.Answer" />
+		<mapping class="org.project.model.entity.Question" />
+		<mapping class="org.project.model.entity.Test" />
+		<mapping class="org.project.model.entity.Type" />
+		<mapping class="org.project.model.entity.User" />
+		<mapping class="org.project.model.entity.UserTest" />
+
+	</session-factory>
+
+</hibernate-configuration>
