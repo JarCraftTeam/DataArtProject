@@ -11,6 +11,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -24,11 +25,15 @@ public class Test {
 	@OneToMany(mappedBy = "test", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<UserTest> userTests = new ArrayList<>();
 
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "test")
+	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+	@JoinColumn(name = "test_id")
 	List<Question> questions = new ArrayList<>();
 
 	@Column(name = "name")
 	private String name;
+
+	@Column(name = "text")
+	private String text;
 
 	@Column(name = "private")
 	private boolean priv;
@@ -104,6 +109,14 @@ public class Test {
 
 	public void setMark(int mark) {
 		this.mark = mark;
+	}
+
+	public String getText() {
+		return text;
+	}
+
+	public void setText(String text) {
+		this.text = text;
 	}
 
 }

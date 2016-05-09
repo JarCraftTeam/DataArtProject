@@ -35,5 +35,7 @@
 		<form:input id="addEmail" path="email" placeholder="Email" />
 		<button type="submit">Save</button>
 	</form:form>
+	
+	<a href="<spring:url value="/test/"/>">Tests</a>
 </body>
 </html>

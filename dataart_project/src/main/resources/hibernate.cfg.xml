@@ -21,6 +21,8 @@
 		<property name="show_sql">true</property>
 
 		<!-- <property name="hbm2ddl.auto">create</property> -->
+		
+		<property name="hibernate.enable_lazy_load_no_trans">true</property>
 
 		<mapping class="org.project.model.entity.Answer" />
 		<mapping class="org.project.model.entity.Question" />

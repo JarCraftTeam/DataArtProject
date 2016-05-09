@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,25 +25,19 @@ public class Question {
 	private Long id;
 
 	@ManyToOne
-	@JoinColumn(name = "test_id", nullable = false)
-	private Test test;
-
-	@ManyToOne
 	@JoinColumn(name = "type_id", nullable = false)
 	private Type type;
-	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "question")
-	List<Answer> answers = new ArrayList<>();
 
-	@Column(name = "name")
-	private String name;
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "question_id")
+	List<Answer> answers = new ArrayList<>();
 
 	@Column(name = "text")
 	private String text;
 
 	@Column(name = "picture")
 	private byte[] picture;
-
+	
 	@Column(name = "mark")
 	private int mark;
 
@@ -52,14 +47,6 @@ public class Question {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public Test getTest() {
-		return test;
-	}
-
-	public void setTest(Test test) {
-		this.test = test;
 	}
 
 	public Type getType() {
@@ -76,14 +63,6 @@ public class Question {
 
 	public void setAnswers(List<Answer> answers) {
 		this.answers = answers;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 	public String getText() {

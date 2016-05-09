@@ -25,9 +25,6 @@ public class Type {
 	@Column(name = "type")
 	private String type;
 
-	@Column(name = "price")
-	private int price;
-
 	public Long getId() {
 		return id;
 	}
@@ -50,14 +47,6 @@ public class Type {
 
 	public void setType(String type) {
 		this.type = type;
-	}
-
-	public int getPrice() {
-		return price;
-	}
-
-	public void setPrice(int price) {
-		this.price = price;
 	}
 
 }

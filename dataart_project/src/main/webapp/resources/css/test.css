@@ -1,0 +1,29 @@
+.test-container{
+	margin-top:2%;
+	margin-left:5%;
+	margin-bottom:2%;
+	margin-right:5%;
+}
+#cha-btn{
+	background:yellow;
+	color:black;
+	border-color:yellow;
+}
+#del-btn{
+	background: red;
+	border-color:red;
+}
+
+table.test-table{
+	width: 90vw;
+}
+
+table td.test-numb{
+	width:5%;
+}
+table td.test-name{
+	width:15%;
+}
+table td.test-about{
+	width:80%;
+}
