@@ -24,11 +24,9 @@
 			<h2>Test list:</h2>
 		</div>
 		<div class="row">
-			<a id="add-btn" class="button button-primary"
-				href="<spring:url value="/test/add"/>">Add new Test</a> <a
-				id="cha-btn" class="button button-primary" href="#">Update Test</a>
-			<a id="del-btn" class="button button-primary" href="#">Delete
-				Test</a>
+			<a id="add-btn" class="button button-primary" href="<spring:url value="/test/add"/>">Add new Test</a> 
+			<a id="cha-btn" class="button button-primary" href="<spring:url value="/test/update"/>">Update Test</a>
+			<a id="del-btn" class="button button-primary" href="<spring:url value="/test/update"/>">Delete Test</a>
 		</div>
 
 

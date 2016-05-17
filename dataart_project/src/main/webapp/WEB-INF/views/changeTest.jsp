@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Add new test</title>
+<title>Change test</title>
 <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600"
 	rel="stylesheet" type="text/css">
 <link rel="stylesheet"
@@ -21,11 +21,19 @@
 </head>
 <body>
 	<div class="main-container">
-		<h2>Add new Test:</h2>
-		<spring:url value="/test/add/saved" var="UrlSave" />
+		<h2>Change Test:</h2>
+
+		<spring:url value="/test/add/changed" var="UrlSave" />
 		<form:form id="test-form" action="${UrlSave}" method="post"
-			modelAttribute="newTest">
+			modelAttribute="test">
 			<h3>Test info:</h3>
+			
+			<div style="display:none" class="row">
+				<label>Id</label>
+				<form:input id="testIdJsp" path="id" cssClass="u-full-width"
+					placeholder="ID" />
+			</div>
+			
 			<div class="row">
 				<label>Name:</label>
 				<form:input id="addName" path="name" cssClass="u-full-width"
@@ -121,7 +129,111 @@
 				</div>
 			</div>
 
-			<button class="button button-primary" type="submit">Save Test!</button>
+			<button class="button button-primary" type="submit">Update Test!</button>
+			</form:form>
+			
+			
+			
+		<spring:url value="/test/delete" var="UrlSave" />
+		<form:form id="test-form" action="${UrlSave}" method="get" modelAttribute="test">
+			<h3></h3>
+			
+			<div style="display:none" class="row">
+				<label>Id</label>
+				<form:input id="testIdJsp" path="id" cssClass="u-full-width"
+					placeholder="ID" />
+			</div>
+			
+			<div style="display:none" class="row">
+				<label>Name:</label>
+				<form:input id="addName" path="name" cssClass="u-full-width"
+					placeholder="Name" />
+			</div>
+
+			<div style="display:none" class="row">
+				<label>About:</label>
+				<form:textarea id="addText" path="text" cssClass="u-full-width"
+					placeholder="About" />
+			</div>
+
+			<div class="row">
+				<div class="six columns">
+					<label>Start date:</label>
+					<form:input id="dateStart" path="date_start"
+						placeholder="Start Date" cssClass="u-full-width" />
+				</div>
+				<div class="six columns">
+					<label>End date:</label>
+					<form:input id="dateEnd" path="date_end" placeholder="End Date"
+						cssClass="u-full-width" />
+				</div>
+			</div>
+
+			<div style="display:none" class="row">
+				<label>General Mark:</label>
+				<form:input id="testMark" path="mark" placeholder="Total Test mark" />
+			</div>
+
+			<div style="display:none" class="row">
+				<form:checkbox id="testPrivate" path="priv" />
+				<span><Strong>Private</Strong></span>
+			</div>
+
+
+			<div style="display:none" class="question-container">
+				<h5>
+					<strong>#1</strong>
+				</h5>
+				<div class="row">
+					<div class="six columns">
+						<h4>Question info:</h4>
+						<div class="row">
+							<div class="six columns">
+								<label>Question type:</label>
+								<form:select id="addQuestionType1" path="questions[0].type.id"
+									cssClass="u-full-width">
+									<c:forEach items="${types}" var="qt" varStatus="i">
+										<form:option value="${qt.id}">${qt.type}</form:option>
+									</c:forEach>
+								</form:select>
+							</div>
+							<div class="six columns">
+								<label>Question price:</label>
+								<form:input id="addQuestionMark1" path="questions[0].mark"
+									placeholder="Question mark"/>
+							</div>
+
+							<div class="row">
+								<label>Question text:</label>
+								<form:textarea id="addQuestionText1" path="questions[0].text"
+									cssClass="u-full-width" placeholder="Question text" />
+							</div>
+						</div>
+					</div>
+
+					<div style="display:none" class="six columns">
+
+						<div class="answer-container">
+							<div class="row">
+								<label>#1</label> <label>Answer Text:</label>
+								<form:input id="answerText" path="questions[0].answers[0].text"
+									placeholder="Answer text" cssClass="u-full-width" />
+							</div>
+
+							<div class="row">
+								<form:checkbox id="answerRight"
+									path="questions[0].answers[0].right" />
+								<span><Strong>Right</Strong></span>
+							</div>
+						</div>
+
+					</div>
+
+
+				</div>
+			</div>
+
+			<button class="button button-primary" type="submit">Delete Test!</button>
 		</form:form>
 
 	</div>

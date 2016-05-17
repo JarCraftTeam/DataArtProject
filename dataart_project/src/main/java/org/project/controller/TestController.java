@@ -1,6 +1,5 @@
 package org.project.controller;
 
-import org.project.model.entity.Question;
 import org.project.model.entity.Test;
 import org.project.model.repository.TypeRepository;
 import org.project.model.service.TestService;
@@ -40,10 +39,29 @@ public class TestController {
 		testService.addTest(test);
 		return "redirect:/test/";
 	}
+	
+	@RequestMapping(value = "/add/changed", method = RequestMethod.POST)
+	public String saveChangedTest(@ModelAttribute Test test) {
+		testService.updateTest(test);
+		return "redirect:/test/";
+	}
 
 	@RequestMapping(value="/{test.id}",method=RequestMethod.GET)
-	public String goUpdateTest(Model model,@PathVariable("test.id") Long testId){
-		model.addAttribute("test",testService.getTestById(testId));
+	public String goUpdateTest(Model model, @PathVariable("test.id") Long testId){
+		model.addAttribute("test", testService.getTestById(testId));
+		model.addAttribute("types", typeRepository.findAll());
+		return "changeTest";
+	}
+	
+	@RequestMapping(value = "/update", method = RequestMethod.GET)
+	public String updateTest(Model model) {
+		model.addAttribute("tests", testService.getTests());
 		return "updateTest";
+	}
+	
+	@RequestMapping(value = "/delete", method = RequestMethod.GET)
+	public String deleteTest(@ModelAttribute Test test) {
+		testService.deleteTest(test.getId());
+		return "redirect:/test/";
 	}
 }
