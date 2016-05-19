@@ -1,6 +1,5 @@
 package org.project.controller;
 
-import org.project.model.entity.Question;
 import org.project.model.entity.Test;
 import org.project.model.repository.TypeRepository;
 import org.project.model.service.TestService;

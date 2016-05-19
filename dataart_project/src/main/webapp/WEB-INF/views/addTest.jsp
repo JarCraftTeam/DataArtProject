@@ -13,119 +13,145 @@
 <link rel="stylesheet"
 	href="<spring:url value="/resources/css/normalize.css"/>"
 	type="text/css" />
-<link rel="stylesheet"
+<!-- <link rel="stylesheet"
 	href="<spring:url value="/resources/css/skeleton.css"/>"
+	type="text/css" />-->
+<link rel="stylesheet"
+	href="<spring:url value="/resources/css/bootstrap.min.css"/>"
+	type="text/css" />
+<link rel="stylesheet"
+	href="<spring:url value="/resources/css/bootstrap-theme.min.css"/>"
 	type="text/css" />
 <link rel="stylesheet"
 	href="<spring:url value="/resources/css/addTest.css"/>" type="text/css" />
+<script	src="<spring:url value="https://cdn.rawgit.com/zenorocha/clipboard.js/master/dist/clipboard.min.js"/>"></script>
 </head>
 <body>
-	<div class="main-container">
-		<h2>Add new Test:</h2>
+	
+	<div class="container">	
+		<h1>Add new Test:</h1>
 		<spring:url value="/test/add/saved" var="UrlSave" />
 		<form:form id="test-form" action="${UrlSave}" method="post"
 			modelAttribute="newTest">
-			<h3>Test info:</h3>
-			<div class="row">
-				<label>Name:</label>
-				<form:input id="addName" path="name" cssClass="u-full-width"
-					placeholder="Name" />
-			</div>
-
-			<div class="row">
-				<label>About:</label>
-				<form:textarea id="addText" path="text" cssClass="u-full-width"
-					placeholder="About" />
-			</div>
-
-			<div class="row">
-				<div class="six columns">
-					<label>Start date:</label>
-					<form:input id="dateStart" path="date_start"
-						placeholder="Start Date" cssClass="u-full-width" />
-				</div>
-				<div class="six columns">
-					<label>End date:</label>
-					<form:input id="dateEnd" path="date_end" placeholder="End Date"
-						cssClass="u-full-width" />
-				</div>
-			</div>
-
-			<div class="row">
-				<label>General Mark:</label>
-				<form:input id="testMark" path="mark" placeholder="Total Test mark" />
-			</div>
-
-			<div class="row">
-				<form:checkbox id="testPrivate" path="priv" />
-				<span><Strong>Private</Strong></span>
-			</div>
-
-
-
-			<h3>
-				Questions: <a class="button add-question">Add Question</a>
-			</h3>
-			<div class="question-container">
-				<h5>
-					<strong>#1</strong>
-				</h5>
+			<div class="formHead">
 				<div class="row">
-					<div class="six columns">
-						<h4>Question info:</h4>
+					<div class="col-xs-8 col-sm-9 col-md-5 col-lg-5">
+						<label class="testName">
+							<span>Name:</span>
+							<form:input id="addName" path="name" cssClass="u-full-width" />
+						</label>
+					</div>
+					<div class="activity col-xs-4 col-sm-3 col-md-2 col-lg-2">
+					    <input id="activity_check" type="checkbox" />
+		                <label for="activity_check">Test on/off</label>
+	                </div>
+					<div class="date col-xs-12 col-sm-12 col-md-5 col-lg-5">
 						<div class="row">
-							<div class="six columns">
-								<label>Question type:</label>
-								<form:select id="addQuestionType1" path="questions[0].type.id"
-									cssClass="u-full-width">
-									<c:forEach items="${types}" var="qt" varStatus="i">
-										<form:option value="${qt.id}">${qt.type}</form:option>
-									</c:forEach>
-								</form:select>
+							<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+								<label><span>Start date:</span>
+									<form:input id="dateStart" path="date_start" type="text"
+									 cssClass="u-full-width" />
+								</label>	
 							</div>
-							<div class="six columns">
-								<label>Question price:</label>
-								<form:input id="addQuestionMark1" path="questions[0].mark"
-									placeholder="Question mark"/>
-							</div>
-
-							<div class="row">
-								<label>Question text:</label>
-								<form:textarea id="addQuestionText1" path="questions[0].text"
-									cssClass="u-full-width" placeholder="Question text" />
+							<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+								<label><span>End date:</span>
+									<form:input id="dateEnd" path="date_end" type="text"
+									 cssClass="u-full-width" />
+								 </label>
 							</div>
 						</div>
 					</div>
-
-					<div class="six columns">
-						<h4>
-							Answers info: <a class="button add-answer">Add Answer</a>
-						</h4>
-						<div class="answer-container">
-							<div class="row">
-								<label>#1</label> <label>Answer Text:</label>
-								<form:input id="answerText" path="questions[0].answers[0].text"
-									placeholder="Answer text" cssClass="u-full-width" />
-							</div>
-
-							<div class="row">
-								<form:checkbox id="answerRight"
-									path="questions[0].answers[0].right" />
-								<span><Strong>Right</Strong></span>
-							</div>
-						</div>
-
-					</div>
-
-
 				</div>
+				<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<label>About:</label>
+				<form:textarea path="text" rows="5" placeholder="About test"/>
+				</div>
+				</div>
+				<div class="row">
+	                <div class="publicity bulged-in col-xs-6 col-sm-6 col-md-2 col-lg-2">
+		                <input id="publicity_check" type="checkbox" />
+						<label for="publicity_check">Private</label>
+	                </div>
+	                <div class="copyLink-btn col-xs-6 col-sm-6 col-md-3 col-lg-3">
+		                <a class="bulged-in btn-clipboard" data-clipboard-target="#link">
+		                    Copy link</a>
+	                </div>
+	                <div class="link col-xs-12 col-sm-12 col-md-7 col-lg-7">
+	                    <p class="bulged-in">Link</p>
+	                    <input id="link"/>
+	                </div>
+	                
+	            </div>
+            </div>
+ 			
+		<div class="main">
+			<div class="question-container">
+				<div class="row">
+					<div class="question col-xs-11 col-sm-11 col-md-6 col-lg-6">
+						<p>Question:</p>
+						<form:textarea path="questions[0].text" rows="7" placeholder="Question text"/>
+					</div>	
+					<div class="add-img col-xs-1 col-sm-1 col-md-1 col-lg-1">	
+						<span>Add image</span>
+						<img class="add-img-icon" alt="add image" src="<spring:url value="../resources/img/add_img.png"/>"/>
+					</div>	
+					<div class="question_type col-xs-12 col-sm-12 col-md-5 col-lg-5">
+						<p>Question type:</p>
+						<form:select id="addQuestionType1" path="questions[0].type.id"
+							cssClass="u-full-width">
+							<c:forEach items="${types}" var="qt" varStatus="i">
+								<form:option value="${qt.id}">${qt.type}</form:option>
+							</c:forEach>
+						</form:select>
+						<div class="question_mark">
+							<p class="bulged-in">Mark for the question</p>
+							<div class="row">
+								<div class="bulged-in col-xs-6 col-sm-6 col-md-6 col-lg-6">
+									<label>correct answer</label>
+									<form:input path="questions[0].mark" type="number" />
+								</div>	
+								<div class="bulged-in col-xs-6 col-sm-6 col-md-6 col-lg-6">
+									<label>incorrect answer</label>
+									<input type="number" />
+								</div>	
+							</div>
+						</div>
+					</div>	
+				</div>
+				<div class="answer-container">
+							<div class="row">
+								<div class="bulged-in col-xs-6 col-sm-6 col-md-6 col-lg-6">
+									<label>#1</label> <label>Answer Text:</label>
+									<form:input id="answerText" path="questions[0].answers[0].text"
+										placeholder="Answer text" cssClass="u-full-width" />
+								</div>		
+								<div class="add-img col-xs-1 col-sm-1 col-md-1 col-lg-1">	
+									<span>Add image</span>
+									<img class="add-img-icon" alt="add image" src="<spring:url value="../resources/img/add_img.png"/>"/>
+								</div>	
+								<div class="answers bulged-in col-xs-2 col-sm-2 col-md-2 col-lg-2">
+					                <form:checkbox  id="1" path="questions[0].answers[0].right" />
+									<label for="1">Correct</label>
+								</div>
+								 <div class="del-btn col-xs-2 col-sm-2 col-md-2 col-lg-2">
+									<img class="del-btn-icon-answer" alt="Delete answer" src="<spring:url value="../resources/img/del-btn.png"/>"/>
+								</div>	
+							</div>
+							
+							</div>
+							<a class="button add-answer add-answer-beginner">Add Answer</a>
 			</div>
-
-			<button class="button button-primary" type="submit">Save
-				Test!</button>
+			
+			
+		</div>	
+			<button class="button button-primary" type="submit">Save Test!</button>
+			<a class="button add-question">Add Question</a>
 		</form:form>
-
 	</div>
+	<script>
+    	new Clipboard('.btn-clipboard'); // Для копирования ссылки
+	</script>
 	<script src="<spring:url value="/resources/js/jquery-2.2.3.min.js"/>"></script>
 	<script src="<spring:url value="/resources/js/dynamicAnswers.js"/>"></script>
 </body>
