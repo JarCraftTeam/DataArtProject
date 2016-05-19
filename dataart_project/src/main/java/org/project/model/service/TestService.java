@@ -28,4 +28,11 @@ public class TestService {
 		return testRepository.findById(id);
 	}
 	
+	public void updateTest(Test test){
+		testRepository.save(test);
+	}
+	
+	public void deleteTest(Long id){
+		testRepository.delete(id);
+	}
 }

@@ -142,11 +142,10 @@
 							</div>
 							<a class="button add-answer add-answer-beginner">Add Answer</a>
 			</div>
-			
-			
 		</div>	
 			<button class="button button-primary" type="submit">Save Test!</button>
 			<a class="button add-question">Add Question</a>
+
 		</form:form>
 	</div>
 	<script>

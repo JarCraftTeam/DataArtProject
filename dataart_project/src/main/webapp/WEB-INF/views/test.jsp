@@ -50,6 +50,7 @@
 			<h2>Test list:</h2>
 		</div>
 		<div class="row">
+
 			<a id="add-btn" class="button button-primary"
 				href="<spring:url value="/test/add"/>">+ Add new Test</a> 
 		</div>
