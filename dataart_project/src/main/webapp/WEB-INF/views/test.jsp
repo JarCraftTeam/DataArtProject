@@ -69,11 +69,11 @@
 					<tr>
 						
 						<td class="test-numb"><h5>${i.count}</h5></td>
-						<td class="test-name"><a href="<spring:url value="/test/${test.id}"/>"><h5>${test.name}</h5></a></td>
+						<td class="test-name"><a href="<spring:url value="/test/view/${test.id}"/>"><h5>${test.name}</h5></a></td>
 						<td class="test-about">${test.text}
 							<div class="controls">
-								<a id="cha-btn" href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a> 
-								<a id="del-btn" href="#"><i class="fa fa-ban" aria-hidden="true"></i></a>
+								<a id="cha-btn" href="update/${test.id}"><i class="fa fa-pencil" aria-hidden="true"></i></a> 
+								<a id="del-btn" href="delete/${test.id}"><i class="fa fa-ban" aria-hidden="true"></i></a>
 							</div>
 						</td>
 					</tr>

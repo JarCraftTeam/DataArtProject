@@ -40,28 +40,29 @@ public class TestController {
 		return "redirect:/test/";
 	}
 	
-	@RequestMapping(value = "/add/changed", method = RequestMethod.POST)
+	@RequestMapping(value="/view/{test.id}")
+	public String viewTest(Model model, @PathVariable("test.id") Long testId){
+		model.addAttribute("test",testService.getTestById(testId));
+		return "updateTest";
+	}
+	
+	@RequestMapping(value = "/update/saved", method = RequestMethod.POST)
 	public String saveChangedTest(@ModelAttribute Test test) {
 		testService.updateTest(test);
 		return "redirect:/test/";
 	}
 
-	@RequestMapping(value="/{test.id}",method=RequestMethod.GET)
+	@RequestMapping(value="/update/{test.id}",method=RequestMethod.GET)
 	public String goUpdateTest(Model model, @PathVariable("test.id") Long testId){
 		model.addAttribute("test", testService.getTestById(testId));
 		model.addAttribute("types", typeRepository.findAll());
 		return "changeTest";
 	}
 	
-	@RequestMapping(value = "/update", method = RequestMethod.GET)
-	public String updateTest(Model model) {
-		model.addAttribute("tests", testService.getTests());
-		return "updateTest";
-	}
 	
-	@RequestMapping(value = "/delete", method = RequestMethod.GET)
-	public String deleteTest(@ModelAttribute Test test) {
-		testService.deleteTest(test.getId());
+	@RequestMapping(value = "/delete/{test.id}", method = RequestMethod.GET)
+	public String deleteTest(@PathVariable("test.id") Long testId) {
+		testService.deleteTest(testId);
 		return "redirect:/test/";
 	}
 }

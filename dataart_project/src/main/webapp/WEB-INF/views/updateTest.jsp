@@ -17,34 +17,32 @@
 	href="<spring:url value="/resources/css/skeleton.css"/>"
 	type="text/css" />
 <link rel="stylesheet"
-	href="<spring:url value="/resources/css/test.css"/>" type="text/css" />
+	href="<spring:url value="/resources/css/updateTest.css"/>" type="text/css" />
 </head>
-<body>
-	<div class="test-container">
-		<div class="row">
-			<h2>Test list:</h2>
-		</div>
-
-		<table class="test-table">
-			<thead>
-				<tr>
-					<th></th>
-					<th>N</th>
-					<th>Name</th>
-					<th>About</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach items="${tests}" var="test" varStatus="i">
-					<tr>
-						<td><input type="radio" /></td>
-						<td class="test-numb"><h5>${i.count}</h5></td>
-						<td class="test-name"><a href="<spring:url value="/test/${test.id}"/>"><h5>${test.name}</h5></a></td>
-						<td class="test-about">${test.text}</td>
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
-	</div>
-</body>
+<div class="main-container">
+	<h2>Test information:</h2>
+	<label class="hashtag">#Name</label>
+	<label>${test.name}</label>
+	<label class="hashtag">#About</label>
+	<label>${test.text}</label>
+	<label class="hashtag">#Start Date</label>
+	<label>${test.date_start}</label>
+	<label class="hashtag">#End Date</label>
+	<label>${test.date_end}</label>
+	<label class="hashtag">#Total Mark</label>
+	<label>${test.mark}</label>
+	<label class="hashtag">#Is Private</label>
+	<label>${test.priv}</label>
+	<br>
+	<label class="hashtag">#Questions</label>
+	<c:forEach items="${test.questions}" var="question" varStatus="i">
+	<label>${question.text}</label>
+	<ol>
+	<c:forEach items="${question.answers}" var="answer" varStatus="j">
+	<li>${answer.text} - ${answer.right}</li>
+	</c:forEach>
+	</ol>
+	</c:forEach>
+	
+</div>
 </html>
