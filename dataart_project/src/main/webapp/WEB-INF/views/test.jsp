@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Test</title>
+<title>List of tests</title>
 <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600"
 	rel="stylesheet" type="text/css">
 <link rel="stylesheet"
@@ -17,25 +17,47 @@
 	type="text/css" />
 <link rel="stylesheet"
 	href="<spring:url value="/resources/css/test.css"/>" type="text/css" />
+<link rel="stylesheet"
+	href="<spring:url value="/resources/css/font-awesome.min.css"/>" type="text/css" />
+<script 
+	src="<spring:url value="/resources/js/jquery-2.2.3.min.js"/>"></script>
+<script 
+	src="<spring:url value="/resources/js/helper.js"/>"></script>
 </head>
 <body>
+<!-- HEADER -->
+	<div id="header">
+		<div class="wrapper">
+			<!-- <img src="/resources/img/logo.png" alt="" /> -->
+			<h1>IT School</h1>
+			<h2>
+				<small>Admin Panel</small>
+			</h2>
+			<div class="main-nav">
+				<ul>
+					<li><a href="#">Home</a></li>
+					<li class="active"><a href="#">Test List</a></li>
+					<li><a href="#">Help</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+<!-- /HEADER -->
+<!-- LISTING STARTS HERE -->
+<div id="main">
 	<div class="test-container">
 		<div class="row">
 			<h2>Test list:</h2>
 		</div>
 		<div class="row">
 			<a id="add-btn" class="button button-primary"
-				href="<spring:url value="/test/add"/>">Add new Test</a> <a
-				id="cha-btn" class="button button-primary" href="#">Update Test</a>
-			<a id="del-btn" class="button button-primary" href="#">Delete
-				Test</a>
+				href="<spring:url value="/test/add"/>">+ Add new Test</a> 
 		</div>
 
 
 		<table class="test-table">
 			<thead>
 				<tr>
-					<th></th>
 					<th>N</th>
 					<th>Name</th>
 					<th>About</th>
@@ -44,14 +66,31 @@
 			<tbody>
 				<c:forEach items="${tests}" var="test" varStatus="i">
 					<tr>
-						<td><input type="radio" /></td>
+						
 						<td class="test-numb"><h5>${i.count}</h5></td>
 						<td class="test-name"><a href="<spring:url value="/test/${test.id}"/>"><h5>${test.name}</h5></a></td>
-						<td class="test-about">${test.text}</td>
+						<td class="test-about">${test.text}
+							<div class="controls">
+								<a id="cha-btn" href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a> 
+								<a id="del-btn" href="#"><i class="fa fa-ban" aria-hidden="true"></i></a>
+							</div>
+						</td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
+		<div class="row">
+			<a id="add-btn" class="button button-primary"
+				href="<spring:url value="/test/add"/>">+ Add new Test</a> 
+		</div>
 	</div>
+</div>
+	<!-- FOOTER -->
+	<footer class="footer">
+		<div class="wrapper">
+			<p>Copyright: JarCraft 2016</p>
+		</div>
+	</footer>
+	<!-- /FOOTER -->
 </body>
 </html>
