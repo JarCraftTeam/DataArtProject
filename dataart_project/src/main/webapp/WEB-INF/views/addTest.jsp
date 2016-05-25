@@ -28,29 +28,29 @@
 </head>
 <body>
 	
-	<div class="container">	
+	<div class="container-fluid">	
 		<h1>Add new Test:</h1>
 		<spring:url value="/test/add/saved" var="UrlSave" />
 		<form:form id="test-form" action="${UrlSave}" method="post"
-			modelAttribute="newTest">
+			modelAttribute="newTest" enctype="multipart/form-data">
 			<div class="formHead">
 				<div class="row">
-					<div class="col-xs-8 col-sm-9 col-md-5 col-lg-5">
+					<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 						<label class="testName">
 							<span>Name:</span>
 							<form:input id="addName" path="name" cssClass="u-full-width" />
 						</label>
 					</div>
-					<div class="activity col-xs-4 col-sm-3 col-md-2 col-lg-2">
-					    <input id="activity_check" type="checkbox" />
-		                <label for="activity_check">Test on/off</label>
+					<div class="activity col-xs-1 col-sm-1 col-md-1 col-lg-1 col-xs-offset-2 col-md-offset-2 col-sm-offset-2 col-lg-offset-2">
+					    <label for="activity_check">Test on/off</label>
+					    <form:checkbox id="activity_check" path="priv" />
 	                </div>
-					<div class="date col-xs-12 col-sm-12 col-md-5 col-lg-5">
+					<div class="date col-xs-3 col-sm-3 col-md-3 col-lg-3">
 						<div class="row">
 							<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 								<label><span>Start date:</span>
 									<form:input id="dateStart" path="date_start" type="text"
-									 cssClass="u-full-width" />
+									 cssClass="" />
 								</label>	
 							</div>
 							<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
@@ -88,15 +88,23 @@
 		<div class="main">
 			<div class="question-container">
 				<div class="row">
-					<div class="question col-xs-11 col-sm-11 col-md-6 col-lg-6">
+					<div class="question col-xs-4 col-sm-4 col-md-4 col-lg-4">
 						<p>Question:</p>
 						<form:textarea path="questions[0].text" rows="7" placeholder="Question text"/>
 					</div>	
-					<div class="add-img col-xs-1 col-sm-1 col-md-1 col-lg-1">	
+					<div class="image-container col-xs-4 col-sm-4 col-md-4 col-lg-4">
+					<div class="add-img col-xs-4 col-sm-4 col-md-4 col-lg-4">	
 						<span>Add image</span>
-						<img class="add-img-icon" alt="add image" src="<spring:url value="../resources/img/add_img.png"/>"/>
+						<label><img class="add-img-icon" alt="add image" src="<spring:url value="../resources/img/add_img.png"/>"/>
+						<input class="img-loader" name="imageLoaderQst" type="file" style="display: none;"></label>
 					</div>	
-					<div class="question_type col-xs-12 col-sm-12 col-md-5 col-lg-5">
+					
+					<div class="show-img qst col-xs-8 col-sm-8 col-md-8 col-lg-8">
+					<p>Image preview:</p>
+					<img class="img-previewer" src="<spring:url value="../resources/img/no_image.png"/>" alt="No question image">
+					</div>
+					</div>
+					<div class="question_type col-xs-4 col-sm-4 col-md-4 col-lg-4">
 						<p>Question type:</p>
 						<form:select id="addQuestionType1" path="questions[0].type.id"
 							cssClass="u-full-width">
@@ -121,15 +129,21 @@
 				</div>
 				<div class="answer-container">
 							<div class="row">
-								<div class="bulged-in col-xs-6 col-sm-6 col-md-6 col-lg-6">
+								<div class="bulged-in col-xs-4 col-sm-4 col-md-4 col-lg-4">
 									<label>#1</label> <label>Answer Text:</label>
 									<form:input id="answerText" path="questions[0].answers[0].text"
 										placeholder="Answer text" cssClass="u-full-width" />
 								</div>		
-								<div class="add-img col-xs-1 col-sm-1 col-md-1 col-lg-1">	
+								<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+								<div class="add-img col-xs-4 col-sm-4 col-md-4 col-lg-4">	
 									<span>Add image</span>
-									<img class="add-img-icon" alt="add image" src="<spring:url value="../resources/img/add_img.png"/>"/>
+									<label><img class="add-img-icon" alt="add image" src="<spring:url value="../resources/img/add_img.png"/>"/>
+									<input class="img-loader" name="imageLoaderAnsw" type="file" style="display: none;"></label>
+								</div>
+								<div class="show-img answ col-xs-8 col-sm-8 col-md-8 col-lg-8">
+								<img class="img-previewer" src="<spring:url value="../resources/img/no_image.png"/>" alt="No answer image">
 								</div>	
+								</div>
 								<div class="answers bulged-in col-xs-2 col-sm-2 col-md-2 col-lg-2">
 					                <form:checkbox  id="1" path="questions[0].answers[0].right" />
 									<label for="1">Correct</label>
@@ -153,5 +167,6 @@
 	</script>
 	<script src="<spring:url value="/resources/js/jquery-2.2.3.min.js"/>"></script>
 	<script src="<spring:url value="/resources/js/dynamicAnswers.js"/>"></script>
+	<script src="<spring:url value="/resources/js/imagePreview.js"/>"></script>
 </body>
 </html>

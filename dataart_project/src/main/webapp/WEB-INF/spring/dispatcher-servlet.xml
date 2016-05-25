@@ -23,6 +23,8 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 
+	<bean id="multipartResolver" class="org.springframework.web.multipart.support.StandardServletMultipartResolver"/>
+
 	<mvc:resources location="/resources/" mapping="/resources/**" />
 
 	<context:component-scan base-package="org.project" />
