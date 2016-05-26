@@ -1,0 +1,24 @@
+@font-face {
+    font-family: 'Casper';
+    src: local('Casper'), url('../fonts/casper/casper.woff2') format('woff2'), url('../fonts/casper/casper.woff') format('woff'), url('../fonts/casper/casper.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Casper';
+    src: local('Casper Italic'), local('CasperItalic'), url('../fonts/casper/casperitalic.woff2') format('woff2'), url('../fonts/casper/casperitalic.woff') format('woff'), url('../fonts/casper/casperitalic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Casper';
+    src: local('Casper Bold'), local('CasperBold'), url('../fonts/casper/casperbold.woff2') format('woff2'), url('../fonts/casper/casperbold.woff') format('woff'), url('../fonts/casper/casperbold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Casper';
+    src: local('Casper Bold Italic'), local('CasperBoldItalic'), url('../fonts/casper/casperbolditalic.woff2') format('woff2'), url('../fonts/casper/casperbolditalic.woff') format('woff'), url('../fonts/casper/casperbolditalic.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+}

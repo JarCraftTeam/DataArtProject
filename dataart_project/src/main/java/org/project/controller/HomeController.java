@@ -19,7 +19,7 @@ public class HomeController {
 	public String goHome(Model model) {
 		model.addAttribute("users", userService.getUsers());
 		model.addAttribute("newUser", new User());
-		return "index";
+		return "login";
 	}
 
 	@RequestMapping(value = "/saved", method = RequestMethod.POST)

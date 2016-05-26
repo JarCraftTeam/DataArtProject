@@ -2,14 +2,13 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Test Update</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<title>List of tests</title>
 
-<!-- Styles -->
+	<!-- Styles -->
 	
 	<link rel="stylesheet"
 		href="<spring:url value="/resources/css/normalize.css"/>"
@@ -22,11 +21,10 @@
 	<link rel="stylesheet"
 		href="<spring:url value="/resources/css/bootstrap-theme.css"/>"
 		type="text/css" />
-<link rel="stylesheet"
-	href="<spring:url value="/resources/css/updateTest.css"/>" type="text/css" />
-	
-	
-<!-- Scripts -->
+	<link rel="stylesheet"
+		href="<spring:url value="/resources/css/login.css"/>" type="text/css" />
+
+	<!-- Scripts -->
 	
 	<script 
 		src="<spring:url value="/resources/js/jquery-2.2.3.min.js"/>"></script>
@@ -40,10 +38,7 @@
 		<div class="wrapper">
 			<!-- <img src="/resources/img/logo.png" alt="" /> -->
 			<h1 class="fcolor-sky">IT School</h1>
-			<div class="admin-panel">
-				<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>Exit Admin Panel
-			</div>
-			<div class="main-nav">
+						<div class="main-nav">
 				<ul>
 					<li><a href="#">Home</a></li>
 					<li ><a href="#">Test List</a></li>
@@ -53,35 +48,26 @@
 		</div>
 	</div>
 	<!-- /HEADER -->
-<div class="test-container">
-	<div class="main-container">
-		<h2>Test information:</h2>
-		<label class="hashtag">#Name</label>
-		<label>${test.name}</label>
-		<label class="hashtag">#About</label>
-		<label>${test.text}</label>
-		<label class="hashtag">#Start Date</label>
-		<label>${test.date_start}</label>
-		<label class="hashtag">#End Date</label>
-		<label>${test.date_end}</label>
-		<label class="hashtag">#Total Mark</label>
-		<label>${test.mark}</label>
-		<label class="hashtag">#Is Private</label>
-		<label>${test.priv}</label>
-		<br>
-		<label class="hashtag">#Questions</label>
-		<c:forEach items="${test.questions}" var="question" varStatus="i">
-		<label>${question.text}</label>
-		<ol>
-		<c:forEach items="${question.answers}" var="answer" varStatus="j">
-		<li>${answer.text} - ${answer.right}</li>
-		</c:forEach>
-		</ol>
-		</c:forEach>
-	</div>
-</div>
+	
+	<div class="container">
 
-<footer class="footer">
+      <form class="form-signin">
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>
+        <button class="btn __darkblue btn-block" type="submit">Sign in</button>
+      </form>
+
+    </div>
+    
+	<footer class="footer">
 		<div class="wrapper">
 			<p>Copyright: JarCraft 2016</p>
 		</div>

@@ -8,18 +8,50 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Change test</title>
-<link href="//fonts.googleapis.com/css?family=Raleway:400,300,600"
-	rel="stylesheet" type="text/css">
+
+	<!-- Styles -->
+	
 <link rel="stylesheet"
-	href="<spring:url value="/resources/css/normalize.css"/>"
-	type="text/css" />
+		href="<spring:url value="/resources/css/normalize.css"/>"
+		type="text/css" />
 <link rel="stylesheet"
-	href="<spring:url value="/resources/css/skeleton.css"/>"
-	type="text/css" />
+		href="<spring:url value="/resources/fonts/casper.css"/>" type="text/css" />
 <link rel="stylesheet"
-	href="<spring:url value="/resources/css/addTest.css"/>" type="text/css" />
+		href="<spring:url value="/resources/css/bootstrap.min.css"/>"
+		type="text/css" />
+<link rel="stylesheet"
+		href="<spring:url value="/resources/css/bootstrap-theme.css"/>"
+		type="text/css" />
+<link rel="stylesheet"
+	href="<spring:url value="/resources/css/"/>" type="text/css" />
+	
+	<!-- Scripts -->
+	<script src="<spring:url value="/resources/js/helper.js"/>"></script>
+	<script src="<spring:url value="/resources/js/jquery-2.2.3.min.js"/>"></script>
+	<script src="<spring:url value="/resources/js/dynamicAnswers.js"/>"></script>
+		
 </head>
 <body>
+<!-- HEADER -->
+	<div id="header">
+		<div class="wrapper">
+			<!-- <img src="/resources/img/logo.png" alt="" /> -->
+			<h1 class="fcolor-sky">IT School</h1>
+			<div class="admin-panel">
+				<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>Admin Panel
+			</div>
+			<div class="main-nav">
+				<ul>
+					<li><a href="#">Home</a></li>
+					<li ><a href="#">Test List</a></li>
+					<li><a href="#">Help</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+<!-- /HEADER -->
+
+<div class="test-container">
 	<div class="main-container">
 		<h2>Change Test:</h2>
 
@@ -237,7 +269,12 @@
 		</form:form>
 
 	</div>
-	<script src="<spring:url value="/resources/js/jquery-2.2.3.min.js"/>"></script>
-	<script src="<spring:url value="/resources/js/dynamicAnswers.js"/>"></script>
+</div>
+
+	<footer class="footer">
+			<div class="wrapper">
+				<p>Copyright: JarCraft 2016</p>
+			</div>
+	</footer>
 </body>
 </html>

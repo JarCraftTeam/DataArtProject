@@ -8,28 +8,54 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Add new test</title>
-<link href="//fonts.googleapis.com/css?family=Raleway:400,300,600"
-	rel="stylesheet" type="text/css">
+
+	<!-- Styles -->
+	
 <link rel="stylesheet"
-	href="<spring:url value="/resources/css/normalize.css"/>"
-	type="text/css" />
-<!-- <link rel="stylesheet"
-	href="<spring:url value="/resources/css/skeleton.css"/>"
-	type="text/css" />-->
+		href="<spring:url value="/resources/css/normalize.css"/>"
+		type="text/css" />
 <link rel="stylesheet"
-	href="<spring:url value="/resources/css/bootstrap.min.css"/>"
-	type="text/css" />
+		href="<spring:url value="/resources/fonts/casper.css"/>" type="text/css" />
 <link rel="stylesheet"
-	href="<spring:url value="/resources/css/bootstrap-theme.min.css"/>"
-	type="text/css" />
+		href="<spring:url value="/resources/css/bootstrap.min.css"/>"
+		type="text/css" />
+<link rel="stylesheet"
+		href="<spring:url value="/resources/css/bootstrap-theme.css"/>"
+		type="text/css" />
 <link rel="stylesheet"
 	href="<spring:url value="/resources/css/addTest.css"/>" type="text/css" />
-<script	src="<spring:url value="https://cdn.rawgit.com/zenorocha/clipboard.js/master/dist/clipboard.min.js"/>"></script>
-</head>
-<body>
 	
+	<!-- Scripts -->
+	
+<script	src="<spring:url value="https://cdn.rawgit.com/zenorocha/clipboard.js/master/dist/clipboard.min.js"/>"></script>
+<script src="<spring:url value="/resources/js/helper.js"/>"></script>
+<script src="<spring:url value="/resources/js/jquery-2.2.3.min.js"/>"></script>
+<script src="<spring:url value="/resources/js/dynamicAnswers.js"/>"></script>
+	
+</head>
+
+<body>
+<!-- HEADER -->
+	<div id="header">
+		<div class="wrapper">
+			<!-- <img src="/resources/img/logo.png" alt="" /> -->
+			<h1 class="fcolor-sky">IT School</h1>
+			<div class="admin-panel">
+				<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>Exit Admin Panel
+			</div>
+			<div class="main-nav">
+				<ul>
+					<li><a href="#">Home</a></li>
+					<li ><a href="#">Test List</a></li>
+					<li><a href="#">Help</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+<!-- /HEADER -->
+
 	<div class="container">	
-		<h1>Add new Test:</h1>
+		<h3>Add new Test:</h3>
 		<spring:url value="/test/add/saved" var="UrlSave" />
 		<form:form id="test-form" action="${UrlSave}" method="post"
 			modelAttribute="newTest">
@@ -151,7 +177,11 @@
 	<script>
     	new Clipboard('.btn-clipboard'); // Для копирования ссылки
 	</script>
-	<script src="<spring:url value="/resources/js/jquery-2.2.3.min.js"/>"></script>
-	<script src="<spring:url value="/resources/js/dynamicAnswers.js"/>"></script>
+	
+	<footer class="footer">
+		<div class="wrapper">
+			<p>Copyright: JarCraft 2016</p>
+		</div>
+	</footer>
 </body>
 </html>
