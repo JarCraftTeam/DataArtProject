@@ -37,5 +37,7 @@
 	</form:form>
 	
 	<a href="<spring:url value="/test/"/>">Tests</a>
+	
+	<a href="<spring:url value="/user"/>">User UI</a>
 </body>
 </html>

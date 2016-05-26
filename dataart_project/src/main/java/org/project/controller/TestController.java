@@ -1,8 +1,11 @@
 package org.project.controller;
 
 import org.project.model.entity.Test;
+import org.project.model.entity.User;
+import org.project.model.repository.AnswerRepository;
 import org.project.model.repository.TypeRepository;
 import org.project.model.service.TestService;
+import org.project.model.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,8 +20,15 @@ public class TestController {
 
 	@Autowired
 	TestService testService;
+	
+	@Autowired
+	UserService userService;
+	
 	@Autowired
 	TypeRepository typeRepository;
+	
+	@Autowired
+	AnswerRepository answerRepository;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String goTest(Model model) {
@@ -64,5 +74,14 @@ public class TestController {
 	public String deleteTest(@PathVariable("test.id") Long testId) {
 		testService.deleteTest(testId);
 		return "redirect:/test/";
+	}
+	
+	@RequestMapping(value="/pass/{test.id}",method=RequestMethod.GET)
+	public String passTheTest(Model model, @PathVariable("test.id") Long testId){
+		model.addAttribute("testForPass", testService.getTestById(testId));
+		model.addAttribute("types", typeRepository.findAll());
+		model.addAttribute("newUser", new User());
+		model.addAttribute("answers", answerRepository.findAll());
+		return "passTheTest";
 	}
 }
