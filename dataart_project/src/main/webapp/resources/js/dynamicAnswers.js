@@ -145,7 +145,6 @@ $(document).ready(function() {
    
     $(document).on('click', '.del-btn-icon-answer', function() {
     	var del_btn = '<img class="del-btn-icon-answer" alt="Delete answer" src="../resources/img/del-btn.png"/>';
-    	console.log(this);
     	$(this).parents('.answer-container').find('.row').find('.del-btn').append(del_btn);
     	$(this).parents('.row').remove();
     	y--;

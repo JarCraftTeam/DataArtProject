@@ -5,34 +5,42 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>List of tests</title>
-<link href="//fonts.googleapis.com/css?family=Raleway:400,300,600"
-	rel="stylesheet" type="text/css">
-<link rel="stylesheet"
-	href="<spring:url value="/resources/css/normalize.css"/>"
-	type="text/css" />
-<link rel="stylesheet"
-	href="<spring:url value="/resources/css/skeleton.css"/>"
-	type="text/css" />
-<link rel="stylesheet"
-	href="<spring:url value="/resources/css/test.css"/>" type="text/css" />
-<link rel="stylesheet"
-	href="<spring:url value="/resources/css/font-awesome.min.css"/>" type="text/css" />
-<script 
-	src="<spring:url value="/resources/js/jquery-2.2.3.min.js"/>"></script>
-<script 
-	src="<spring:url value="/resources/js/helper.js"/>"></script>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<title>List of tests</title>
+
+	<!-- Styles -->
+	
+	<link rel="stylesheet"
+		href="<spring:url value="/resources/css/normalize.css"/>"
+		type="text/css" />
+	<link rel="stylesheet"
+		href="<spring:url value="/resources/fonts/casper.css"/>" type="text/css" />
+	<link rel="stylesheet"
+		href="<spring:url value="/resources/css/bootstrap.min.css"/>"
+		type="text/css" />
+	<link rel="stylesheet"
+		href="<spring:url value="/resources/css/bootstrap-theme.css"/>"
+		type="text/css" />
+	<link rel="stylesheet"
+		href="<spring:url value="/resources/css/test.css"/>" type="text/css" />
+
+	<!-- Scripts -->
+	
+	<script 
+		src="<spring:url value="/resources/js/jquery-2.2.3.min.js"/>"></script>
+	<script 
+		src="<spring:url value="/resources/js/helper.js"/>"></script>
+		
 </head>
 <body>
-<!-- HEADER -->
+	<!-- HEADER -->
 	<div id="header">
 		<div class="wrapper">
 			<!-- <img src="/resources/img/logo.png" alt="" /> -->
-			<h1>IT School</h1>
-			<h2>
-				<small>Admin Panel</small>
-			</h2>
+			<h1 class="fcolor-sky">IT School</h1>
+			<div class="admin-panel">
+				<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>Exit Admin Panel
+			</div>
 			<div class="main-nav">
 				<ul>
 					<li><a href="#">Home</a></li>
@@ -42,56 +50,58 @@
 			</div>
 		</div>
 	</div>
-<!-- /HEADER -->
-<!-- LISTING STARTS HERE -->
-<div id="main">
-	<div class="test-container">
-		<div class="row">
-			<h2>Test list:</h2>
-		</div>
-		<div class="row">
-
-			<a id="add-btn" class="button button-primary"
-				href="<spring:url value="/test/add"/>">+ Add new Test</a> 
-		</div>
-
-
-		<table class="test-table">
-			<thead>
-				<tr>
-					<th>N</th>
-					<th>Name</th>
-					<th>About</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach items="${tests}" var="test" varStatus="i">
+	<!-- /HEADER -->
+	
+	<!-- LISTING STARTS HERE -->
+	<div id="main">
+		<div class="test-container">
+			<div class="row align-center">
+				<h2>Test list:</h2>
+			</div>
+			<div class="row align-center __drop">
+	
+				<a id="add-btn" class="btn __darkblue"
+					href="<spring:url value="/test/add"/>"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add new Test</a> 
+			</div>
+	
+	
+			<table class="test-table">
+				<thead>
 					<tr>
-						
-						<td class="test-numb"><h5>${i.count}</h5></td>
-						<td class="test-name"><a href="<spring:url value="/test/view/${test.id}"/>"><h5>${test.name}</h5></a></td>
-						<td class="test-about">${test.text}
-							<div class="controls">
-								<a id="cha-btn" href="update/${test.id}"><i class="fa fa-pencil" aria-hidden="true"></i></a> 
-								<a id="del-btn" href="delete/${test.id}"><i class="fa fa-ban" aria-hidden="true"></i></a>
-							</div>
-						</td>
+						<th>N</th>
+						<th>Name</th>
+						<th>About</th>
 					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
-		<div class="row">
-			<a id="add-btn" class="button button-primary"
-				href="<spring:url value="/test/add"/>">+ Add new Test</a> 
+				</thead>
+				<tbody>
+					<c:forEach items="${tests}" var="test" varStatus="i">
+						<tr>
+							
+							<td class="test-numb"><h5>${i.count}</h5></td>
+							<td class="test-name"><a href="<spring:url value="/test/view/${test.id}"/>" class="fcolor-orange"><h5>${test.name}</h5></a></td>
+							<td class="test-about">${test.text}
+								<div class="controls">
+									<a id="cha-btn" href="update/${test.id}"><span class="glyphicon glyphicon-pencil fcolor-darkblue" aria-hidden="true"></span></a> 
+									<a id="del-btn" href="delete/${test.id}"><span class="glyphicon glyphicon-remove fcolor-orange" aria-hidden="true"></span></a>
+								</div>
+							</td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+			<div class="row align-center">
+				<a id="add-btn" class="btn __darkblue"
+					href="<spring:url value="/test/add"/>"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add new Test</a> 
+			</div>
 		</div>
 	</div>
-</div>
-	<!-- FOOTER -->
+	
 	<footer class="footer">
 		<div class="wrapper">
 			<p>Copyright: JarCraft 2016</p>
 		</div>
 	</footer>
-	<!-- /FOOTER -->
+	
+
 </body>
 </html>
