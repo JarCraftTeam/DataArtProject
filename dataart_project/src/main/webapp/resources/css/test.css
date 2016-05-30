@@ -1,0 +1,35 @@
+
+
+.controls{
+	height:24px;
+	line-height:24px;
+}
+
+#cha-btn,
+#del-btn{
+    display: none;
+}
+
+.test-about:hover #cha-btn,
+.test-about:hover #del-btn{
+	display:inline-block;
+}
+
+.test-about{
+	font-size:12px;
+}
+
+table.test-table{
+	width: 90vw;
+}
+
+table td.test-numb{
+	width:5%;
+}
+table td.test-name{
+	width:15%;
+}
+table td.test-about{
+	width:80%;
+}
+
