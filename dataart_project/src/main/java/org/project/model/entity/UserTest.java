@@ -28,7 +28,29 @@ public class UserTest {
 	@Column(name = "mark")
 	private int mark;
 
-	public Long getId() {
+	@Column(name = "answer_id")
+	private int answer;
+
+	@Column(name = "answer_text")
+	private String answerText;
+
+    public String getAnswerText() {
+        return answerText;
+    }
+
+    public void setAnswerText(String answerText) {
+        this.answerText = answerText;
+    }
+
+    public int getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(int answer) {
+        this.answer = answer;
+    }
+
+    public Long getId() {
 		return id;
 	}
 

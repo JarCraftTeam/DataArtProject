@@ -1,11 +1,8 @@
 package org.project.model.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "answer")
@@ -24,6 +21,9 @@ public class Answer {
 
 	@Column(name = "`right`")
 	private boolean right;
+
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	private List<UserTest> userTests = new ArrayList<>();
 
 	public int getId() {
 		return id;
