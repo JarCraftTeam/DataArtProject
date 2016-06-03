@@ -7,14 +7,14 @@ public class TestUserAnswer {
     private Test test;
     private User user;
     private Map<Question, UserTest> questionUserTestMap;
-    private String xxx;
+    private String testAnswText;
 
-    public String getXxx() {
-        return xxx;
+    public String getTestAnswText() {
+        return testAnswText;
     }
 
-    public void setXxx(String xxx) {
-        this.xxx = xxx;
+    public void setTestAnswText(String testAnswText) {
+        this.testAnswText = testAnswText;
     }
 
     public TestUserAnswer() {

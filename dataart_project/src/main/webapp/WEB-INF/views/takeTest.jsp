@@ -76,21 +76,21 @@
                         <c:if test="${question.type.id==1}">
                             <div class="answer-container">
                                 <label>Answer text:</label>
-                                <form:radiobuttons path="xxx" items="${question.answers}"/>
+                                <form:radiobuttons path="testAnswText" items="${question.answers}"/>
                                     <%--</c:forEach>--%>
                             </div>
                         </c:if>
                         <c:if test="${question.type.id==2}">
                             <div class="answer-container">
                                 <label>Answer text:</label>
-                                <form:checkboxes path="xxx" items="${question.answers}"/>
+                                <form:checkboxes path="testAnswText" items="${question.answers}"/>
                                     <%--</c:forEach>--%>
                             </div>
                         </c:if>
                         <c:if test="${question.type.id==3}">
                             <div class="answer-container">
                                 <label>Answer text:</label>
-                                <form:input path="xxx"  type="text"/>
+                                <form:input path="testAnswText"  type="text"/>
                                     <%--</c:forEach>--%>
                             </div>
                         </c:if>
