@@ -76,12 +76,5 @@ public class TestController {
 		return "redirect:/test/";
 	}
 	
-	@RequestMapping(value="/take/{test.id}",method=RequestMethod.GET)
-	public String passTheTest(Model model, @PathVariable("test.id") Long testId){
-		model.addAttribute("testForTaking", testService.getTestById(testId));
-		model.addAttribute("types", typeRepository.findAll());
-		model.addAttribute("newUser", new User());
-		model.addAttribute("answers", answerRepository.findAll());
-		return "takeTest";
-	}
+
 }

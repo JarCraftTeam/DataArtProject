@@ -22,8 +22,12 @@ public class Answer {
 	@Column(name = "`right`")
 	private boolean right;
 
-	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	private List<UserTest> userTests = new ArrayList<>();
+//	@OneToMany(mappedBy = "answer", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//	private List<UserTest> userTests = new ArrayList<>();
+
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @JoinColumn(name = "answer_id")
+    List<UserTest> userTests = new ArrayList<>();
 
 	public int getId() {
 		return id;
@@ -37,7 +41,7 @@ public class Answer {
 		return text;
 	}
 
-	public void setText(String text) {
+    public void setText(String text) {
 		this.text = text;
 	}
 
@@ -56,5 +60,10 @@ public class Answer {
 	public void setRight(boolean right) {
 		this.right = right;
 	}
+
+    @Override
+    public String toString() {
+        return text;
+    }
 
 }

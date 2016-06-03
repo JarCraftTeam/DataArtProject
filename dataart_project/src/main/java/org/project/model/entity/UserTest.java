@@ -1,12 +1,6 @@
 package org.project.model.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "user_test")
@@ -17,19 +11,28 @@ public class UserTest {
 	@Column(name = "id")
 	private Long id;
 
-	@ManyToOne
-	@JoinColumn(name = "user_id")
-	private User user;
+//	@ManyToOne
+//	@JoinColumn(name = "user_id")
+//	private User user;
 
-	@ManyToOne
-	@JoinColumn(name = "test_id")
-	private Test test;
+//	@ManyToOne
+//	@JoinColumn(name = "test_id")
+//	private Test test;
 
-	@Column(name = "mark")
+    @Override
+    public String toString() {
+        return "UserTest{" +
+                "id=" + id +
+                ", mark=" + mark +
+                ", answerText='" + answerText + '\'' +
+                '}';
+    }
+
+    @Column(name = "mark")
 	private int mark;
 
-	@Column(name = "answer_id")
-	private int answer;
+//	@Column(name = "answer_id")
+//	private int answer;
 
 	@Column(name = "answer_text")
 	private String answerText;
@@ -42,13 +45,6 @@ public class UserTest {
         this.answerText = answerText;
     }
 
-    public int getAnswer() {
-        return answer;
-    }
-
-    public void setAnswer(int answer) {
-        this.answer = answer;
-    }
 
     public Long getId() {
 		return id;
@@ -56,22 +52,6 @@ public class UserTest {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-
-	public Test getTest() {
-		return test;
-	}
-
-	public void setTest(Test test) {
-		this.test = test;
 	}
 
 	public int getMark() {
