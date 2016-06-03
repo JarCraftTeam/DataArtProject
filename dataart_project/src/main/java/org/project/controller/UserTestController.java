@@ -1,9 +1,9 @@
 package org.project.controller;
 
 
+import org.project.model.entity.Test;
 import org.project.model.entity.TestUserAnswer;
 import org.project.model.entity.User;
-import org.project.model.entity.UserTest;
 import org.project.model.repository.AnswerRepository;
 import org.project.model.repository.TypeRepository;
 import org.project.model.repository.UserTestRepository;
@@ -18,8 +18,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.support.SessionStatus;
-
-import java.util.ArrayList;
 
 @Controller
 @RequestMapping("/UserTest")
@@ -45,7 +43,10 @@ public class UserTestController {
 
     @RequestMapping(value = "/take/{test.id}", method = RequestMethod.GET)
     public String passTheTest(Model model, @PathVariable("test.id") Long testId) {
-        model.addAttribute("testForTaking", new TestUserAnswer(testService.getTestById(testId), new User()));
+        TestUserAnswer testForTaking = new TestUserAnswer(testService.getTestById(testId), new User());
+        Test currentTest = testService.getTestById(testId);
+        testForTaking.setTest(currentTest);
+        model.addAttribute("testForTaking", testForTaking);
 //        model.addAttribute("types", typeRepository.findAll());
 //        model.addAttribute("newUser", new User());
 //        model.addAttribute("answers", answerRepository.findAll());

@@ -1,19 +1,21 @@
 package org.project.model.entity;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class TestUserAnswer {
     private Test test;
     private User user;
     private Map<Question, UserTest> questionUserTestMap;
-    private String testAnswText;
+    private List<String> testAnswText;
 
-    public String getTestAnswText() {
+    public List<String> getTestAnswText() {
         return testAnswText;
     }
 
-    public void setTestAnswText(String testAnswText) {
+    public void setTestAnswText(List<String> testAnswText) {
         this.testAnswText = testAnswText;
     }
 
@@ -24,6 +26,7 @@ public class TestUserAnswer {
         this.test = test;
         this.user = user;
         this.questionUserTestMap = new HashMap<>();
+        this.testAnswText = new ArrayList<>();
     }
 
     public Test getTest() {
