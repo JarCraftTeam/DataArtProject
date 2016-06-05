@@ -1,0 +1,167 @@
+.test-container{
+	margin-top:2%;
+	margin-left:5%;
+	margin-bottom:2%;
+	margin-right:5%;
+}
+
+#add-btn{
+	background-color:#003354;
+	border:none;
+}
+#add-btn:hover{
+	background-color:#91BED4;
+}
+
+#cha-btn,
+#del-btn{
+	border-color: #ffffff;
+    font-size: 18px;
+    display: none;
+    padding-right: 6px;
+}
+#cha-btn{
+	color: #003354;
+}
+
+#del-btn{
+    color: #F26101;
+}
+
+.controls,
+.controls .fa
+{
+	height:24px;
+	line-height:24px;
+}
+
+.test-about{
+	font-size:12px;
+}
+
+.test-about:hover #cha-btn,
+.test-about:hover #del-btn{
+	display:inline-block;
+}
+ th,
+ table td.test-numb
+ {
+ 	text-align:center;
+ 	}
+
+table.test-table{
+	width: 90vw;
+}
+
+table.test-table a{
+	color:#F26101;
+}
+
+table td.test-numb{
+	width:5%;
+}
+table td.test-name{
+	width:15%;
+}
+table td.test-about{
+	width:80%;
+}
+
+body {
+	font-family: Arial, San-Serif;
+	font-size:100%;
+}
+
+#header {
+	padding-top: 50px;
+	background-color: #003354;
+	border-bottom: 3px solid #F26101;
+}
+
+ ul{
+	padding:0;
+	margin:0;
+	
+}
+ul li{
+	list-style-type: none;
+	display: block;
+}
+
+a{
+	text-decoration:none;
+}
+
+.wrapper{
+	margin: 0 auto;
+	max-width:900px;
+	text-align: center;
+}
+
+.wrapper h1,
+.wrapper h2{
+    color: #D9E8F5;
+}
+
+.main-nav{
+	background-color: #003354;
+	border-color: white;
+	min-height: 64px;
+	font-size:2em;
+	text-align: center;
+}
+.main-nav ul{
+	font-size:0;	
+}
+
+.main-nav li{
+	display: inline-block;
+	width:100px;
+	margin-bottom: 0;
+	font-size:20px;
+}
+
+.main-nav a {
+	display: block;
+	line-height: 4em;
+	font-weight: bold;
+	text-align: center;
+	color:#FFFFFF;
+}
+
+.main-nav li.active{
+	background-color: #F26101;
+}
+
+.main-nav li a:hover{
+	color:#FFFFFF;
+	background-color:#91BED4;
+}
+
+.row{
+	text-align: center;
+}
+.row div{
+	padding-bottom: 10px;
+}
+.row a{
+	font-weight:bold;
+	color: #2CAEB0;
+}
+
+#header.__fixed .main-nav{
+	position:fixed;
+	top: 0;
+    left: 0;
+    right: 0;
+    border-bottom: 3px solid #F26101;
+}
+
+.footer {
+	background-color: #003354;
+	color: #ffffff;
+	padding: 20px 0;
+	margin-top: 30px;
+	text-align: center;
+	border-top: 3px solid #F26101;
+}
