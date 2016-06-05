@@ -8,7 +8,7 @@ import java.util.Map;
 public class TestUserAnswer {
     private Test test;
     private User user;
-    private Map<Question, UserTest> questionUserTestMap;
+    private Map<Long, List<Long>> questionUserTestMap;
     private List<String> testAnswText;
 
     public List<String> getTestAnswText() {
@@ -45,11 +45,11 @@ public class TestUserAnswer {
         this.user = user;
     }
 
-    public Map<Question, UserTest> getQuestionUserTestMap() {
+    public Map<Long, List<Long>> getQuestionUserTestMap() {
         return questionUserTestMap;
     }
 
-    public void setQuestionUserTestMap(Map<Question, UserTest> questionUserTestMap) {
+    public void setQuestionUserTestMap(Map<Long, List<Long>> questionUserTestMap) {
         this.questionUserTestMap = questionUserTestMap;
     }
 }

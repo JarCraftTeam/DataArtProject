@@ -31,8 +31,8 @@ public class UserTest {
     @Column(name = "mark")
 	private int mark;
 
-//	@Column(name = "answer_id")
-//	private int answer;
+	@Column(name = "answer_id")
+	private int answer;
 
 	@Column(name = "answer_text")
 	private String answerText;

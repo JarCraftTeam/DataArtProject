@@ -39,10 +39,19 @@
 <div class="main-container">
     <h2>Choose the correct answers:</h2>
 
-
-    <%--<form:form id="test-form" action="${UrlSave}" method="post"--%>
-               <%--modelAttribute="testForTaking" >--%>
         <h3>Test info:</h3>
+        
+        <div style="display:none" class="row">
+				<label>Id</label>
+				<form:input id="testTakeId" path="test.id" cssClass="u-full-width"
+					placeholder="ID" />
+			</div>
+			
+			<div style="display:none" class="row">
+				<label>Name:</label>
+				<form:input id="testTakeName" path="test.name" cssClass="u-full-width"
+					placeholder="Name" />
+			</div>
 
         <%--<div style="display:none" class="row">--%>
             <%--<label>General Mark:</label>--%>
@@ -65,7 +74,6 @@
 
                     <c:forEach items="${testForTaking.test.questions}" var="question" varStatus="i">
                         <h4>Question info:</h4>
-
                         <div class="row">
                             <div class="six columns">
                                 <label>Question text:</label>
@@ -76,52 +84,30 @@
                         <c:if test="${question.type.id==1}">
                             <div class="answer-container">
                                 <label>Answer text:</label>
-                                <form:radiobuttons path="testAnswText" items="${question.answers}"/>
-                                    <%--</c:forEach>--%>
+                                <%--<c:forEach var="answer" items="${question.answers}">--%>
+                                    <%--<form:checkbox path="${question.userAnswer}" value="${answer}"/>${answer.text}--%>
+                                <%--</c:forEach>--%>
+                                <form:select path="test.questions[${i.index}].userAnswer" itemValue="id" items="${question.answers}"/>
                             </div>
                         </c:if>
                         <c:if test="${question.type.id==2}">
-                            <div class="answer-container">
-                                <label>Answer text:</label>
-                                <form:checkboxes path="testAnswText" items="${question.answers}"/>
-                                    <%--</c:forEach>--%>
-                            </div>
+                            <%--<div class="answer-container">--%>
+                                <%--<label>Answer text:</label>--%>
+                                <%--<form:checkboxes path="testAnswText" items="${question.answers}"/>--%>
+                                    <%--&lt;%&ndash;</c:forEach>&ndash;%&gt;--%>
+                            <%--</div>--%>
                         </c:if>
                         <c:if test="${question.type.id==3}">
-                            <div class="answer-container">
-                                <label>Answer text:</label>
-                                <form:input path="testAnswText"  type="text"/>
-                                    <%--</c:forEach>--%>
-                            </div>
+                            <%--<div class="answer-container">--%>
+                                <%--<label>Answer text:</label>--%>
+                                <%--<form:input path="testAnswText"  type="text"/>--%>
+                                    <%--&lt;%&ndash;</c:forEach>&ndash;%&gt;--%>
+                            <%--</div>--%>
                         </c:if>
 
                     </c:forEach>
                 </div>
 
-                    <%--<div class="six columns">--%>
-                    <%----%>
-                    <%--<div class="answer-container">--%>
-                    <%--&lt;%&ndash;<div class="row">&ndash;%&gt;--%>
-                    <%--<label>#1</label> <label>Answer Text:</label>--%>
-                    <%--<form:input id="answerText" path="questions[0].answers[0].text"--%>
-                    <%--placeholder="Answer text" cssClass="u-full-width" />--%>
-                    <%--&lt;%&ndash;<c:forEach items="${testForTaking.questions.answers}" var="answer" varStatus="j">&ndash;%&gt;--%>
-                    <%--&lt;%&ndash;<li>${answer.text} - ${answer.right}</li>&ndash;%&gt;--%>
-                    <%--&lt;%&ndash;</c:forEach>&ndash;%&gt;--%>
-                    <%--</div>--%>
-
-                    <%--<div style="display:none" class="row">--%>
-                    <%--<form:checkbox id="answerRight"--%>
-                    <%--path="questions[0].answers[0].right" />--%>
-                    <%--<span><Strong>Right</Strong></span>--%>
-                    <%--</div>--%>
-                    <%--</div>--%>
-
-                    <%--</div>--%>
-
-
-            </div>
-        </div>
 
         <button class="button button-primary" type="submit" >Save my answers!</button>
 

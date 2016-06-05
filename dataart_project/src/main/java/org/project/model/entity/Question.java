@@ -14,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "question")
@@ -40,6 +41,9 @@ public class Question {
 	
 	@Column(name = "mark")
 	private int mark;
+	
+	@Transient
+	private Long userAnswer;
 
 	public Long getId() {
 		return id;
@@ -87,6 +91,14 @@ public class Question {
 
 	public void setMark(int mark) {
 		this.mark = mark;
+	}
+	
+	public Long getUserAnswer() {
+		return userAnswer;
+	}
+
+	public void setUserAnswer(Long userAnswer) {
+		this.userAnswer = userAnswer;
 	}
 
 }
