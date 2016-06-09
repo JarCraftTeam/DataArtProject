@@ -16,34 +16,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `user_test`
+-- Table structure for table `checkboxlist`
 --
 
-DROP TABLE IF EXISTS `user_test`;
+DROP TABLE IF EXISTS `checkboxlist`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `user_test` (
+CREATE TABLE `checkboxlist` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) DEFAULT NULL,
-  `test_id` int(11) DEFAULT NULL,
-  `answers_id` int(11) DEFAULT NULL,
-  `mark` int(11) DEFAULT NULL,
+  `answer_id` int(11) DEFAULT NULL,
+  `useranswer_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `fk_test_idx` (`test_id`),
-  KEY `fk_user_idx` (`user_id`),
-  CONSTRAINT `fk_test` FOREIGN KEY (`test_id`) REFERENCES `test` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
+  KEY `fk_chks_useranswer_idx` (`useranswer_id`),
+  CONSTRAINT `fk_chks_useranswer` FOREIGN KEY (`useranswer_id`) REFERENCES `user_answer` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `user_test`
+-- Dumping data for table `checkboxlist`
 --
 
-LOCK TABLES `user_test` WRITE;
-/*!40000 ALTER TABLE `user_test` DISABLE KEYS */;
-INSERT INTO `user_test` VALUES (1,19,42,NULL,0),(2,20,42,NULL,0),(3,21,42,NULL,0),(4,22,42,NULL,0),(5,23,42,NULL,0),(6,24,42,NULL,0),(7,25,42,NULL,0),(8,26,42,NULL,0),(9,27,42,NULL,0),(18,36,42,NULL,0),(19,37,42,NULL,0),(20,38,42,NULL,0),(21,39,42,NULL,0),(22,40,42,NULL,0),(23,41,42,NULL,0),(24,42,42,NULL,0),(25,43,42,NULL,0);
-/*!40000 ALTER TABLE `user_test` ENABLE KEYS */;
+LOCK TABLES `checkboxlist` WRITE;
+/*!40000 ALTER TABLE `checkboxlist` DISABLE KEYS */;
+INSERT INTO `checkboxlist` VALUES (9,35,33),(10,36,33),(11,35,36),(12,36,36),(13,37,39),(14,38,39),(15,35,42),(16,36,42),(17,35,45),(18,36,45),(19,37,45),(20,35,48),(21,36,48),(22,37,51),(23,38,51),(24,36,54),(25,37,54),(26,38,54);
+/*!40000 ALTER TABLE `checkboxlist` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -55,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-06-09 17:26:18
+-- Dump completed on 2016-06-09 17:26:17

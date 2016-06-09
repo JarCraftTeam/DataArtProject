@@ -16,34 +16,35 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `user_test`
+-- Table structure for table `question`
 --
 
-DROP TABLE IF EXISTS `user_test`;
+DROP TABLE IF EXISTS `question`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `user_test` (
+CREATE TABLE `question` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) DEFAULT NULL,
   `test_id` int(11) DEFAULT NULL,
-  `answers_id` int(11) DEFAULT NULL,
+  `type_id` int(11) DEFAULT NULL,
+  `text` varchar(255) DEFAULT NULL,
+  `picture` longblob,
   `mark` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `fk_test_idx` (`test_id`),
-  KEY `fk_user_idx` (`user_id`),
-  CONSTRAINT `fk_test` FOREIGN KEY (`test_id`) REFERENCES `test` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
+  KEY `fk_question_test_idx` (`test_id`),
+  KEY `fk_question_type_idx` (`type_id`),
+  CONSTRAINT `fk_question_test` FOREIGN KEY (`test_id`) REFERENCES `test` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_question_type` FOREIGN KEY (`type_id`) REFERENCES `type` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `user_test`
+-- Dumping data for table `question`
 --
 
-LOCK TABLES `user_test` WRITE;
-/*!40000 ALTER TABLE `user_test` DISABLE KEYS */;
-INSERT INTO `user_test` VALUES (1,19,42,NULL,0),(2,20,42,NULL,0),(3,21,42,NULL,0),(4,22,42,NULL,0),(5,23,42,NULL,0),(6,24,42,NULL,0),(7,25,42,NULL,0),(8,26,42,NULL,0),(9,27,42,NULL,0),(18,36,42,NULL,0),(19,37,42,NULL,0),(20,38,42,NULL,0),(21,39,42,NULL,0),(22,40,42,NULL,0),(23,41,42,NULL,0),(24,42,42,NULL,0),(25,43,42,NULL,0);
-/*!40000 ALTER TABLE `user_test` ENABLE KEYS */;
+LOCK TABLES `question` WRITE;
+/*!40000 ALTER TABLE `question` DISABLE KEYS */;
+INSERT INTO `question` VALUES (19,35,2,'How about question 1?',NULL,0),(20,35,2,'Question with two answers..',NULL,0),(21,35,1,'And the last one',NULL,0),(32,42,1,'question 1 type One',NULL,3),(33,42,2,'question 2 type Several',NULL,5),(34,42,3,'question 3 type Full',NULL,5);
+/*!40000 ALTER TABLE `question` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
