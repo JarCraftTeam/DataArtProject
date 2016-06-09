@@ -1,6 +1,8 @@
 package org.project.model.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "user_test")
@@ -11,40 +13,52 @@ public class UserTest {
 	@Column(name = "id")
 	private Long id;
 
-//	@ManyToOne
-//	@JoinColumn(name = "user_id")
-//	private User user;
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	private User user;
 
-//	@ManyToOne
-//	@JoinColumn(name = "test_id")
-//	private Test test;
+	@ManyToOne
+	@JoinColumn(name = "test_id")
+	private Test test;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Test getTest() {
+        return test;
+    }
+
+    public void setTest(Test test) {
+        this.test = test;
+    }
 
     @Override
     public String toString() {
         return "UserTest{" +
                 "id=" + id +
                 ", mark=" + mark +
-                ", answerText='" + answerText + '\'' +
                 '}';
     }
 
     @Column(name = "mark")
 	private int mark;
 
-	@Column(name = "answer_id")
-	private int answer;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "usertest_id")
+    List<UserAnswer> answers = new ArrayList<>();
 
-	@Column(name = "answer_text")
-	private String answerText;
-
-    public String getAnswerText() {
-        return answerText;
+    public List<UserAnswer> getAnswers() {
+        return answers;
     }
 
-    public void setAnswerText(String answerText) {
-        this.answerText = answerText;
+    public void setAnswers(List<UserAnswer> answers) {
+        this.answers = answers;
     }
-
 
     public Long getId() {
 		return id;

@@ -26,7 +26,7 @@
 <%--<spring:url value="/saved" var="UrlSave"/>--%>
 <spring:url value="/UserTest/saveAnswers/" var="UrlSave"/>
 <form:form id="user-form" action="${UrlSave}" method="post"
-           modelAttribute="testForTaking">
+           modelAttribute="userTest">
     <form:input id="addFirstName" path="user.first_name"
                 placeholder="First Name"/>
     <form:input id="addSecondName" path="user.second_name"
@@ -65,14 +65,14 @@
 
 
         <div class="question-container">
-            <h5>
-                <strong>#1</strong>
-            </h5>
+            <%--<h5>--%>
+                <%--<strong>#1</strong>--%>
+            <%--</h5>--%>
 
             <div class="row">
                 <div class="six columns">
 
-                    <c:forEach items="${testForTaking.test.questions}" var="question" varStatus="i">
+                    <c:forEach items="${userTest.test.questions}" var="question" varStatus="i">
                         <h4>Question info:</h4>
                         <div class="row">
                             <div class="six columns">
@@ -85,15 +85,16 @@
                             <div class="answer-container">
                                 <label>Answer text:</label>
                                 <%--<c:forEach var="answer" items="${question.answers}">--%>
-                                    <%--<form:checkbox path="${question.userAnswer}" value="${answer}"/>${answer.text}--%>
+                                    <form:radiobuttons  path="test.questions[${i.index}].userAnswers" itemValue="id" items="${question.answers}"/>
                                 <%--</c:forEach>--%>
-                                <form:select path="test.questions[${i.index}].userAnswer" itemValue="id" items="${question.answers}"/>
+                                <%--<form:select path="test.questions[${i.index}].userAnswers" itemValue="id" items="${question.answers}"/>  Pasha--%>
                             </div>
                         </c:if>
                         <c:if test="${question.type.id==2}">
                             <%--<div class="answer-container">--%>
                                 <%--<label>Answer text:</label>--%>
                                 <%--<form:checkboxes path="testAnswText" items="${question.answers}"/>--%>
+                                <form:checkboxes path="test.questions[${i.index}].userAnswers" itemValue="id" items="${question.answers}"/>
                                     <%--&lt;%&ndash;</c:forEach>&ndash;%&gt;--%>
                             <%--</div>--%>
                         </c:if>
@@ -101,7 +102,8 @@
                             <%--<div class="answer-container">--%>
                                 <%--<label>Answer text:</label>--%>
                                 <%--<form:input path="testAnswText"  type="text"/>--%>
-                                    <%--&lt;%&ndash;</c:forEach>&ndash;%&gt;--%>
+                                <form:input path="test.questions[${i.index}].userAnswers" itemValue="id" type="text"/>
+                                    <%--</c:forEach>--%>
                             <%--</div>--%>
                         </c:if>
 
