@@ -1,10 +1,9 @@
 $(document).ready(function() {
-    /*var wrapper_answer = $(".answer-container");*/
 	var wrapper_question=$(".main");
     var add_button_answer = $(".add-answer"); 
     var add_button_question= $(".add-question");
-    var x = 1, y = 1;
-    
+    var x = $(".question-container").size();
+    var temporary=0;
     $(document).on('click', '.add-question', function(e){
     	e.preventDefault();
     	var add_question='<div class="question-container">'
@@ -22,7 +21,7 @@ $(document).ready(function() {
 		+'</div>'	
 		+'<div class="image-container col-xs-12 col-sm-12 col-md-5 col-lg-5">'
 		+'<div class="show-img qst col-xs-4 col-sm-4 col-md-8 col-lg-8">'
-		+'<img class="img-previewer" src="../resources/img/no_image.png" alt="No question image">'
+		+'<img class="img-previewer" src="../../resources/img/no_image.png" alt="No question image">'
 		+'</div>'
 		+'<div class="add-img col-xs-2 col-sm-2 col-md-4 col-lg-4">'
 		+'<label>'
@@ -72,7 +71,7 @@ $(document).ready(function() {
     	+'placeholder="Answer text" class="u-full-width form-control" />'
 		+'</div>'
 		+'<div class="show-img answ col-xs-2 col-sm-2 col-md-2 col-lg-2">'
-    	+'<img class="img-previewer" src="../resources/img/no_image.png" alt="No answer image">'
+    	+'<img class="img-previewer" src="../../resources/img/no_image.png" alt="No answer image">'
 		+'</div>'
 		+'<div class="add-img col-xs-1 col-sm-1 col-md-1 col-lg-1">'	
 		+'<label>'
@@ -115,7 +114,7 @@ $(document).ready(function() {
     			+'placeholder="Answer text" class="u-full-width form-control" />'
     			+'</div>'
     			+'<div class="show-img answ col-xs-2 col-sm-2 col-md-2 col-lg-2">'
-    			+'<img class="img-previewer" src="../resources/img/no_image.png" alt="No answer image">'
+    			+'<img class="img-previewer" src="../../resources/img/no_image.png" alt="No answer image">'
     			+'</div>'
     			+'<div class="add-img col-xs-1 col-sm-1 col-md-1 col-lg-1">'	
     			+'<label>'
@@ -145,21 +144,22 @@ $(document).ready(function() {
     
     $(document).on('click', '.add-answer-beginner' ,function(e){
         e.preventDefault();
-        
+        	var xt = $(this).closest(".question-container").children(".question-number").val();
+        	var y = $(this).closest(".question-container").children(".answer-container").children(".row").size()+temporary;
         	var add_answer='<div class="row">'
         	+'<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">'
         	+'<h4>#'+(y+1)+'</h4>'
 			+'</div>'
 			+'<div class="answers col-xs-1 col-sm-1 col-md-1 col-lg-1">'
-            +'<input type="checkbox" id="d'+y+'" name="questions[0].answers['+y+'].right"/>'
+            +'<input type="checkbox" id="d'+y+'" name="questions['+xt+'].answers['+y+'].right"/>'
             +'<label for="d'+y+'"></label>'
 			+'</div>'
 			+'<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">'
-			+'<input id="answerText" name="questions[0].answers['+y+'].text" '
+			+'<input id="answerText" name="questions['+xt+'].answers['+y+'].text" '
 			+'placeholder="Answer text" class="u-full-width form-control" />'
 			+'</div>'
 			+'<div class="show-img answ col-xs-2 col-sm-2 col-md-2 col-lg-2">'
-			+'<img class="img-previewer" src="../resources/img/no_image.png" alt="No answer image">'
+			+'<img class="img-previewer" src="../../resources/img/no_image.png" alt="No answer image">'
 			+'</div>'
 			+'<div class="add-img col-xs-1 col-sm-1 col-md-1 col-lg-1">'	
 			+'<label>'
@@ -186,6 +186,7 @@ $(document).ready(function() {
    
     $(document).on('click', '.del-btn-icon-answer', function() {
     	$(this).parents('.row').remove();
+    	temporary++;
     });
     $(document).on('click', '.del-btn-icon-ques', function() {
     	$(this).parents('.question-container').remove();

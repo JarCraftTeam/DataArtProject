@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.project.model.entity.Question;
 import org.project.model.entity.Test;
 import org.project.model.repository.TestRepository;
 import org.springframework.beans.factory.annotation.Autowired;

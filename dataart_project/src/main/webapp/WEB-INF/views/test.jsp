@@ -33,24 +33,7 @@
 		
 </head>
 <body>
-	<!-- HEADER -->
-	<div id="header">
-		<div class="wrapper">
-			<!-- <img src="/resources/img/logo.png" alt="" /> -->
-			<h1 class="fcolor-sky">IT School</h1>
-			<div class="admin-panel">
-				<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>Exit Admin Panel
-			</div>
-			<div class="main-nav">
-				<ul>
-					<li><a href="#">Home</a></li>
-					<li class="active"><a href="#">Test List</a></li>
-					<li><a href="#">Help</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
-	<!-- /HEADER -->
+	<jsp:include page="header.jsp"></jsp:include>
 	
 	<!-- LISTING STARTS HERE -->
 	<div id="main">
@@ -89,10 +72,6 @@
 					</c:forEach>
 				</tbody>
 			</table>
-			<div class="row align-center">
-				<a id="add-btn" class="btn __darkblue"
-					href="<spring:url value="/test/add"/>"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add new Test</a> 
-			</div>
 		</div>
 	</div>
 	

@@ -35,77 +35,59 @@
 </head>
 
 <body>
-<!-- HEADER -->
-	<div id="header">
-		<div class="wrapper">
-			<!-- <img src="/resources/img/logo.png" alt="" /> -->
-			<h1 class="fcolor-sky">IT School</h1>
-			<div class="admin-panel">
-				<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>Exit Admin Panel
-			</div>
-			<div class="main-nav">
-				<ul>
-					<li><a href="#">Home</a></li>
-					<li ><a href="#">Test List</a></li>
-					<li><a href="#">Help</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
-<!-- /HEADER -->
+<jsp:include page="headerNonActive.jsp"></jsp:include>
 
 	<div class="container">	
-		<h3>Add new Test:</h3>
 		<spring:url value="/test/add/saved" var="UrlSave" />
 		<form:form id="test-form" action="${UrlSave}" method="post"
 			modelAttribute="newTest" enctype="multipart/form-data">
 			<div class="formHead">
 				<div class="row">
-					<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+					<div class="col-xs-8 col-sm-8 col-md-6 col-lg-6">
 						<label class="testName">
 							<span>Name:</span>
-							<form:input id="addName" path="name" cssClass="u-full-width" />
+							<form:input id="addName" path="name" cssClass="u-full-width form-control" />
 						</label>
 					</div>
-					<div class="activity col-xs-1 col-sm-1 col-md-1 col-lg-1 col-xs-offset-2 col-md-offset-2 col-sm-offset-2 col-lg-offset-2">
-					    <label for="activity_check">Test on/off</label>
-					    <form:checkbox id="activity_check" path="priv" />
+					<div class="activity col-xs-4 col-sm-4 col-md-2 col-lg-2">
+					    <!--<form:checkbox id="activity_check" path="priv" />
+					    <label for="activity_check">Test on/off</label>-->
 	                </div>
-					<div class="date col-xs-3 col-sm-3 col-md-3 col-lg-3">
+					<div class="date col-xs-12 col-sm-12 col-md-4 col-lg-4">
 						<div class="row">
 							<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 								<label><span>Start date:</span>
 									<form:input id="dateStart" path="date_start" type="text"
-									 cssClass="" />
+									 cssClass="form-control" />
 								</label>	
 							</div>
 							<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 								<label><span>End date:</span>
 									<form:input id="dateEnd" path="date_end" type="text"
-									 cssClass="u-full-width" />
+									 cssClass="u-full-width form-control" />
 								 </label>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="row">
-				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<label>About:</label>
-				<form:textarea path="text" rows="5" placeholder="About test"/>
-				</div>
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<label>About:</label>
+						<form:textarea path="text" cssClass="form-control" rows="5" placeholder="About test"/>
+					</div>
 				</div>
 				<div class="row">
-	                <div class="publicity bulged-in col-xs-6 col-sm-6 col-md-2 col-lg-2">
-		                <input id="publicity_check" type="checkbox" />
+	                <div class="publicity col-xs-6 col-sm-6 col-md-2 col-lg-2">
+		                <form:checkbox id="publicity_check" path="priv" />
 						<label for="publicity_check">Private</label>
 	                </div>
 	                <div class="copyLink-btn col-xs-6 col-sm-6 col-md-3 col-lg-3">
-		                <a class="bulged-in btn-clipboard" data-clipboard-target="#link">
-		                    Copy link</a>
+	                	<button class="btn __darkblue btn-clipboard" data-clipboard-target="#link" type="button">Copy</button>
+		           
 	                </div>
 	                <div class="link col-xs-12 col-sm-12 col-md-7 col-lg-7">
-	                    <p class="bulged-in">Link</p>
-	                    <input id="link"/>
+	                    <p class="">Link</p>
+	                    <input id="link" class="form-control" />
 	                </div>
 	                
 	            </div>
@@ -114,77 +96,89 @@
 		<div class="main">
 			<div class="question-container">
 				<div class="row">
-					<div class="question col-xs-4 col-sm-4 col-md-4 col-lg-4">
-						<p>Question:</p>
-						<form:textarea path="questions[0].text" rows="7" placeholder="Question text"/>
+					<div class="question col-xs-12 col-sm-12 col-md-7 col-lg-7">
+						<p>#1 Question:</p>
+						<form:textarea path="questions[0].text" rows="7" class="form-control" placeholder="Question text"/>
 					</div>	
-					<div class="image-container col-xs-4 col-sm-4 col-md-4 col-lg-4">
-					<div class="add-img col-xs-4 col-sm-4 col-md-4 col-lg-4">	
-						<span>Add image</span>
-						<label><img class="add-img-icon" alt="add image" src="<spring:url value="../resources/img/add_img.png"/>"/>
-						<input class="img-loader" name="imageLoaderQst" type="file" style="display: none;"></label>
-					</div>	
-					
-					<div class="show-img qst col-xs-8 col-sm-8 col-md-8 col-lg-8">
-					<p>Image preview:</p>
-					<img class="img-previewer" src="<spring:url value="../resources/img/no_image.png"/>" alt="No question image">
+					<div class="image-container col-xs-12 col-sm-12 col-md-5 col-lg-5">
+						
+						<div class="show-img qst col-xs-4 col-sm-4 col-md-8 col-lg-8">
+							<img class="img-previewer" src="<spring:url value="../resources/img/no_image.png"/>" alt="No question image">
+						</div>
+						<div class="add-img col-xs-2 col-sm-2 col-md-4 col-lg-4">	
+							<label>
+								<a type="button" class="btn __darkblue btn-lg">
+  									<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+								</a>
+								<input class="img-loader" name="imageLoaderQst" type="file" style="display: none;">
+							</label>
+						</div>	
 					</div>
-					</div>
-					<div class="question_type col-xs-4 col-sm-4 col-md-4 col-lg-4">
+				</div>	
+				<div class="row">
+					<div class="question_type col-xs-6 col-sm-6 col-md-3 col-lg-3">
 						<p>Question type:</p>
 						<form:select id="addQuestionType1" path="questions[0].type.id"
-							cssClass="u-full-width">
+							cssClass="u-full-width form-control">
 							<c:forEach items="${types}" var="qt" varStatus="i">
 								<form:option value="${qt.id}">${qt.type}</form:option>
 							</c:forEach>
 						</form:select>
-						<div class="question_mark">
-							<p class="bulged-in">Mark for the question</p>
+					</div>	
+					<div class="marks col-xs-6 col-sm-6 col-md-4 col-lg-4">
+						<p>Mark for the question</p>
 							<div class="row">
-								<div class="bulged-in col-xs-6 col-sm-6 col-md-6 col-lg-6">
+								<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 									<label>correct answer</label>
-									<form:input path="questions[0].mark" type="number" />
+									<form:input cssClass="form-control" path="questions[0].mark" type="number" value="1"/>
 								</div>	
-								<div class="bulged-in col-xs-6 col-sm-6 col-md-6 col-lg-6">
+								<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 									<label>incorrect answer</label>
-									<input type="number" />
+									<input class="form-control" type="number" value="-1"/>
 								</div>	
-							</div>
-						</div>
+							</div>	
 					</div>	
 				</div>
 				<div class="answer-container">
-							<div class="row">
-								<div class="bulged-in col-xs-4 col-sm-4 col-md-4 col-lg-4">
-									<label>#1</label> <label>Answer Text:</label>
-									<form:input id="answerText" path="questions[0].answers[0].text"
-										placeholder="Answer text" cssClass="u-full-width" />
-								</div>		
-								<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-								<div class="add-img col-xs-4 col-sm-4 col-md-4 col-lg-4">	
-									<span>Add image</span>
-									<label><img class="add-img-icon" alt="add image" src="<spring:url value="../resources/img/add_img.png"/>"/>
-									<input class="img-loader" name="imageLoaderAnsw" type="file" style="display: none;"></label>
-								</div>
-								<div class="show-img answ col-xs-8 col-sm-8 col-md-8 col-lg-8">
-								<img class="img-previewer" src="<spring:url value="../resources/img/no_image.png"/>" alt="No answer image">
-								</div>	
-								</div>
-								<div class="answers bulged-in col-xs-2 col-sm-2 col-md-2 col-lg-2">
-					                <form:checkbox  id="1" path="questions[0].answers[0].right" />
-									<label for="1">Correct</label>
-								</div>
-								 <div class="del-btn col-xs-2 col-sm-2 col-md-2 col-lg-2">
-									<img class="del-btn-icon-answer" alt="Delete answer" src="<spring:url value="../resources/img/del-btn.png"/>"/>
-								</div>	
+					<div class="row">
+						<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+			                <h4>#1</h4>
+						</div>
+						<div class="answers col-xs-1 col-sm-1 col-md-1 col-lg-1">
+			                <form:checkbox  id="1" path="questions[0].answers[0].right"/>
+			                <label for="1"></label>
+						</div>
+						<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+							<form:input id="answerText" path="questions[0].answers[0].text"
+								placeholder="Answer text" cssClass="u-full-width form-control" />
+						</div>		
+						<div class="show-img answ col-xs-2 col-sm-2 col-md-2 col-lg-2">
+							<img class="img-previewer" src="<spring:url value="../resources/img/no_image.png"/>" alt="No answer image">
+						</div>
+						<div class="add-img col-xs-1 col-sm-1 col-md-1 col-lg-1">	
+							<label>
+								<a type="button" class="btn __darkblue btn-lg">
+  									<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+								</a>
+								<input class="img-loader" name="imageLoaderAnsw" type="file" style="display: none;">
+							</label>
+						</div>	
+						
+						 <div class="del-btn col-xs-1 col-sm-1 col-md-1 col-lg-1">
+							<div class="del-btn-icon-answer" title="Delete answer">
+							<a type="button" class="btn btn-danger btn-lg">
+  								<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+							</a>
 							</div>
-							
-							</div>
-							<a class="button add-answer add-answer-beginner">Add Answer</a>
+						</div>	
+					</div>
+					
+					</div>
+					<a class="btn __darkblue add-answer add-answer-beginner">Add Answer</a>
 			</div>
 		</div>	
-			<button class="button button-primary" type="submit">Save Test!</button>
-			<a class="button add-question">Add Question</a>
+			<button class="btn __darkblue button-primary" type="submit">Save Test!</button>
+			<a class="btn __darkblue add-question">Add Question</a>
 
 		</form:form>
 	</div>

@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "answer")
@@ -24,6 +25,17 @@ public class Answer {
 
 	@Column(name = "`right`")
 	private boolean right;
+	
+	@Transient
+	private String encryptedImage;
+
+	public String getEncryptedImage() {
+		return encryptedImage;
+	}
+
+	public void setEncryptedImage(String encryptedImage) {
+		this.encryptedImage = encryptedImage;
+	}
 
 	public int getId() {
 		return id;

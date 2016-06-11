@@ -25,7 +25,7 @@ public class Test {
 	@OneToMany(mappedBy = "test", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<UserTest> userTests = new ArrayList<>();
 
-	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+	@OneToMany(cascade=CascadeType.ALL, orphanRemoval=true) 
 	@JoinColumn(name = "test_id")
 	List<Question> questions = new ArrayList<>();
 
