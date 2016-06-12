@@ -30,6 +30,8 @@
 		<mapping class="org.project.model.entity.Type" />
 		<mapping class="org.project.model.entity.User" />
 		<mapping class="org.project.model.entity.UserTest" />
+		<mapping class="org.project.model.entity.UserAnswer" />
+		<mapping class="org.project.model.entity.CheckBoxList" />
 
 	</session-factory>
 

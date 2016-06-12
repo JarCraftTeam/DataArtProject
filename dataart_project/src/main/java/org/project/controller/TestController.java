@@ -1,14 +1,13 @@
 package org.project.controller;
 
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.Base64;
-import java.util.List;
 
-import org.project.model.entity.Question;
 import org.project.model.entity.Test;
+import org.project.model.repository.AnswerRepository;
 import org.project.model.repository.TypeRepository;
 import org.project.model.service.TestService;
+import org.project.model.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,8 +24,15 @@ public class TestController {
 
 	@Autowired
 	TestService testService;
+	
+	@Autowired
+	UserService userService;
+	
 	@Autowired
 	TypeRepository typeRepository;
+	
+	@Autowired
+	AnswerRepository answerRepository;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String goTest(Model model) {
@@ -149,5 +155,6 @@ public class TestController {
 		}
 		return test;
 	}
+
 
 }

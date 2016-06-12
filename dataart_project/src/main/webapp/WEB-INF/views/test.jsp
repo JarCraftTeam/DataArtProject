@@ -9,12 +9,6 @@
 	<title>List of tests</title>
 
 	<!-- Styles -->
-	
-	<link rel="stylesheet"
-		href="<spring:url value="/resources/css/normalize.css"/>"
-		type="text/css" />
-	<link rel="stylesheet"
-		href="<spring:url value="/resources/fonts/casper.css"/>" type="text/css" />
 	<link rel="stylesheet"
 		href="<spring:url value="/resources/css/bootstrap.min.css"/>"
 		type="text/css" />

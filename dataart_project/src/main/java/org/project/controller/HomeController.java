@@ -1,6 +1,7 @@
 package org.project.controller;
 
 import org.project.model.entity.User;
+import org.project.model.service.TestService;
 import org.project.model.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,11 +15,12 @@ public class HomeController {
 
 	@Autowired
 	UserService userService;
+	
+	@Autowired
+	TestService testService;
 
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = "/admin", method = RequestMethod.GET)
 	public String goHome(Model model) {
-		model.addAttribute("users", userService.getUsers());
-		model.addAttribute("newUser", new User());
 		return "login";
 	}
 
@@ -26,6 +28,12 @@ public class HomeController {
 	public String addUser(@ModelAttribute User user) {
 		userService.addUser(user);
 		return "redirect:/";
+	}
+	
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String userHome(Model model) {
+		model.addAttribute("openTests", testService.getTests());
+		return "usersFirstPage";
 	}
 
 }

@@ -1,8 +1,10 @@
 package org.project.model.entity;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -16,6 +18,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+
 
 @Entity
 @Table(name = "question")
@@ -53,7 +56,10 @@ public class Question {
 	public void setEncryptedImage(String encryptedImage) {
 		this.encryptedImage = encryptedImage;
 	}
-
+	
+	@Transient
+	private List<String> userAnswers;
+	
 	public Long getId() {
 		return id;
 	}
@@ -100,6 +106,14 @@ public class Question {
 
 	public void setMark(int mark) {
 		this.mark = mark;
+	}
+	
+	public List<String> getUserAnswers() {
+		return userAnswers;
+	}
+
+	public void setUserAnswers(List<String> userAnswers) {
+		this.userAnswers = userAnswers;
 	}
 
 	@Override

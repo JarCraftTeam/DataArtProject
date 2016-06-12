@@ -1,17 +1,8 @@
 package org.project.model.entity;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
 @Entity
 @Table(name = "user")
@@ -22,8 +13,12 @@ public class User {
 	@Column(name = "id")
 	private Long id;
 
-	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	private List<UserTest> userTests = new ArrayList<>();
+//	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//	private List<UserTest> userTests = new ArrayList<>();
+
+	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+	@JoinColumn(name = "user_id")
+	List<UserTest> userTests = new ArrayList<>();
 
 	@Column(name = "first_name")
 	private String first_name;

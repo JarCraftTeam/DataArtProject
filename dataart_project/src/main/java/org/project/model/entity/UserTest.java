@@ -1,12 +1,8 @@
 package org.project.model.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "user_test")
@@ -25,31 +21,51 @@ public class UserTest {
 	@JoinColumn(name = "test_id")
 	private Test test;
 
-	@Column(name = "mark")
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Test getTest() {
+        return test;
+    }
+
+    public void setTest(Test test) {
+        this.test = test;
+    }
+
+    @Override
+    public String toString() {
+        return "UserTest{" +
+                "id=" + id +
+                ", mark=" + mark +
+                '}';
+    }
+
+    @Column(name = "mark")
 	private int mark;
 
-	public Long getId() {
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "usertest_id")
+    List<UserAnswer> answers = new ArrayList<>();
+
+    public List<UserAnswer> getAnswers() {
+        return answers;
+    }
+
+    public void setAnswers(List<UserAnswer> answers) {
+        this.answers = answers;
+    }
+
+    public Long getId() {
 		return id;
 	}
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-
-	public Test getTest() {
-		return test;
-	}
-
-	public void setTest(Test test) {
-		this.test = test;
 	}
 
 	public int getMark() {

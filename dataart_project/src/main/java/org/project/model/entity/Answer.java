@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+
 @Entity
 @Table(name = "answer")
 public class Answer {
@@ -15,7 +16,7 @@ public class Answer {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-	private int id;
+	private Long id;
 
 	@Column(name = "text")
 	private String text;
@@ -37,11 +38,11 @@ public class Answer {
 		this.encryptedImage = encryptedImage;
 	}
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -49,7 +50,7 @@ public class Answer {
 		return text;
 	}
 
-	public void setText(String text) {
+    public void setText(String text) {
 		this.text = text;
 	}
 
@@ -68,5 +69,10 @@ public class Answer {
 	public void setRight(boolean right) {
 		this.right = right;
 	}
+
+    @Override
+    public String toString() {
+        return text;
+    }
 
 }

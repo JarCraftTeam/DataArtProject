@@ -41,7 +41,7 @@
 						<div class="main-nav">
 				<ul>
 					<li><a href="#">Home</a></li>
-					<li ><a href="#">Test List</a></li>
+					<li ><a href="test/">Test List</a></li>
 					<li><a href="#">Help</a></li>
 				</ul>
 			</div>
