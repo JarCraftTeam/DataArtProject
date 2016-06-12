@@ -86,7 +86,7 @@ public class UserTestController {
             boolean right = false;
             String questionType = question.getType().getType();
             List<String> userAnswerList = userTest.getTest().getQuestions().get(i).getUserAnswers();
-            if (!userAnswerList.isEmpty()) {
+            if (userAnswerList != null && !userAnswerList.isEmpty()) {
                 if ("One".equals(questionType)) {
                     Long userAnswerId = Long.parseLong(userAnswerList.get(0));
                     userAnswer.setAnswerId(userAnswerId);
