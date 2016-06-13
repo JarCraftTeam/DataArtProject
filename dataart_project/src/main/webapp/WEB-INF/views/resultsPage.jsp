@@ -33,12 +33,7 @@
 	<div id="main">
 		<div class="test-container">
 			<div class="row align-center">
-				<h2>Test list:</h2>
-			</div>
-			<div class="row align-center __drop">
-	
-				<a id="add-btn" class="btn __darkblue"
-					href="<spring:url value="/test/add"/>"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add new Test</a> 
+				<h2>Results of the "########" test</h2>
 			</div>
 	
 	
@@ -46,27 +41,37 @@
 				<thead>
 					<tr>
 						<th>N</th>
-						<th>Name</th>
-						<th>About</th>
+						<th>User first name</th>
+						<th>User second name</th>
+						<th>User phone</th>
+						<th>User e-mail</th>
+						<th>Summary mark</th>
+						<th>test1</th>
+						<th>test2</th>
+						<th>test3</th>
+						<th>test4</th>
+						<th>test5</th>		
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach items="${tests}" var="test" varStatus="i">
+					<c:forEach items="${userTests}" var="userTest" varStatus="i">
 						<tr>
-							
 							<td class="test-numb"><h5>${i.count}</h5></td>
-							<td class="test-name"><a href="<spring:url value="/test/view/${test.id}"/>" class="fcolor-orange"><h5>${test.name}</h5></a></td>
-							<td class="test-about">${test.text}
-								<div class="controls">
-									<a id="cha-btn" href="update/${test.id}"><span class="glyphicon glyphicon-pencil fcolor-darkblue" aria-hidden="true"></span></a> 
-									<a id="del-btn" href="delete/${test.id}"><span class="glyphicon glyphicon-remove fcolor-orange" aria-hidden="true"></span></a>
-								</div>
+							<td class="test-about"><h5>${userTest.user.first_name}</h5></td>
+							<td class="test-about"><h5>${userTest.user.second_name}</h5></td>
+							<td class="test-about"><h5>${userTest.user.telephone}</h5></td>
+							<td class="test-about"><h5>${userTest.user.email}</h5></td>
+							<td class="test-about"><h5>${userTest.mark}</h5></td>
+							
+							<td class="test-about">
+								<c:forEach items="${userTest.answers}" var="eachUserAnswer">         
+									<h5>${eachUserAnswer.answerId}</h5> <%--NEED TO UPDATE TO <h5>${eachUserAnswer.mark}</h5>--%>
+								</c:forEach>
 							</td>
-							<td class="row"><a id="add-btn" class="btn btn-primary"
-				            			href="<spring:url value="/test/results/${test.id}"/>">Results</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>
+
 			</table>
 		</div>
 	</div>
