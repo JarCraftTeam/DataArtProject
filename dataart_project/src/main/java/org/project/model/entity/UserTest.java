@@ -21,23 +21,24 @@ public class UserTest {
 	@JoinColumn(name = "test_id")
 	private Test test;
 
+
     public User getUser() {
-        return user;
-    }
+		return user;
+	}
 
-    public void setUser(User user) {
-        this.user = user;
-    }
+	public void setUser(User user) {
+		this.user = user;
+	}
 
-    public Test getTest() {
-        return test;
-    }
+	public Test getTest() {
+		return test;
+	}
 
-    public void setTest(Test test) {
-        this.test = test;
-    }
+	public void setTest(Test test) {
+		this.test = test;
+	}
 
-    @Override
+	@Override
     public String toString() {
         return "UserTest{" +
                 "id=" + id +

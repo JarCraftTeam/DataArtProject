@@ -2,6 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -38,30 +39,33 @@
 		<div class="wrapper">
 			<!-- <img src="/resources/img/logo.png" alt="" /> -->
 			<h1 class="fcolor-sky">IT School</h1>
-						<div class="main-nav">
-				<ul>
-					<li><a href="#">Home</a></li>
-					<li ><a href="test/">Test List</a></li>
-					<li><a href="#">Help</a></li>
-				</ul>
-			</div>
+			<h2 class="fcolor-sky">
+				Admin Panel
+			</h2>
 		</div>
 	</div>
 	<!-- /HEADER -->
 	
 	<div class="container">
-
-      <form class="form-signin">
+	  <c:url value="/login" var="loginVar"/> 
+      <form class="form-signin" action="${loginVar}" method="POST">
         <h2 class="form-signin-heading">Please sign in</h2>
         <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        <input type="text" name="custom_username" class="form-control" placeholder="Login" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <input type="password" name="custom_password" class="form-control" required placeholder="Password" >
         <div class="checkbox">
           <label>
             <input type="checkbox" value="remember-me"> Remember me
           </label>
         </div>
+        <c:if test="${param.error != null}">
+        	<p>Invalid Username and Password.</p>
+        </c:if>
+        <c:if test="${param.logout != null}">
+        	<p>You have successfully been logged out.</p>
+        </c:if>
+        <sec:csrfInput/>	
         <button class="btn __darkblue btn-block" type="submit">Sign in</button>
       </form>
 

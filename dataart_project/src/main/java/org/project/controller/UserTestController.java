@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.support.SessionStatus;
 
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -55,7 +56,8 @@ public class UserTestController {
     @RequestMapping(value = "/take/{test.id}", method = RequestMethod.GET)
     public String passTheTest(Model model, @PathVariable("test.id") Long testId) {
         UserTest userTest = new UserTest();
-        userTest.setTest(testService.getTestById(testId));
+        Test test=testService.getTestById(testId);
+        userTest.setTest(encryptImages(test));
         userTest.setUser(new User());
         userTest.setAnswers(new ArrayList<>());
         model.addAttribute("userTest", userTest);
@@ -142,6 +144,25 @@ public class UserTestController {
 //        return "redirect:/testPassed/" + userTestMy.getId();
         return "redirect:/";
     }
+    
+    private Test encryptImages(Test test) {
+
+		for (int i = 0; i < test.getQuestions().size(); i++) {
+			String encrypted = "null";
+			byte[] photo = test.getQuestions().get(i).getPicture();
+			if (photo != null)
+				encrypted = Base64.getEncoder().encodeToString((photo));
+			test.getQuestions().get(i).setEncryptedImage(encrypted);
+			for (int j = 0; j < test.getQuestions().get(i).getAnswers().size(); j++) {
+				encrypted = "null";
+				photo = test.getQuestions().get(i).getAnswers().get(j).getPicture();
+				if (photo != null)
+					encrypted = Base64.getEncoder().encodeToString((photo));
+				test.getQuestions().get(i).getAnswers().get(j).setEncryptedImage(encrypted);
+			}
+		}
+		return test;
+	}
 
 
 //    @RequestMapping(value = "/testPassed/{usertest.id}")

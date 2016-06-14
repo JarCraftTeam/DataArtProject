@@ -29,13 +29,13 @@
 		<div class="wrapper">
 			<!-- <img src="/resources/img/logo.png" alt="" /> -->
 			<h1 class="fcolor-sky">IT School</h1>
-			<h2>
-				<small>User Panel</small>
+			<h2 class="fcolor-sky">
+				User panel
 			</h2>
 			<div class="main-nav">
 				<ul>
 					<li class="active"><a href="#">Test List</a></li>
-					<li><a href="#">About us</a></li>
+					<li><a href="#">About Us</a></li>
 				</ul>
 			</div>
 		</div>

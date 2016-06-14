@@ -2,6 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -27,7 +28,29 @@
 		
 </head>
 <body>
-	<jsp:include page="header.jsp"></jsp:include>
+	<div id="header">
+		<div class="wrapper">
+			<!-- <img src="/resources/img/logo.png" alt="" /> -->
+			<h1 class="fcolor-sky">IT School</h1>
+			<h2 class="fcolor-sky">
+				Admin Panel
+			</h2>
+			<div class="admin-panel">
+				<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+				<a id="logout" href="#">Exit Admin Panel</a>
+				<form id="logout-form" action="<c:url value="/logout"/>" method="post">
+					<sec:csrfInput/>
+				</form>
+			</div>
+			<div class="main-nav">
+				<ul>
+					<li><a href="#">Home</a></li>
+					<li class="active"><a href="/dataart_project/test/">Test List</a></li>
+					<li><a href="#">Help</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
 	
 	<!-- LISTING STARTS HERE -->
 	<div id="main">
@@ -74,7 +97,14 @@
 			<p>Copyright: JarCraft 2016</p>
 		</div>
 	</footer>
-	
+<script>
+$(document).ready(function(){
+	$("#logout").click(function(e){
+		e.preventDefault();
+		$("#logout-form").submit();
+	});
+});
+</script>	
 
 </body>
 </html>

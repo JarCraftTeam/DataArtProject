@@ -19,8 +19,8 @@ public class HomeController {
 	@Autowired
 	TestService testService;
 
-	@RequestMapping(value = "/admin", method = RequestMethod.GET)
-	public String goHome(Model model) {
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String goLogin(Model model) {
 		return "login";
 	}
 
