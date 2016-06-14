@@ -56,13 +56,13 @@
 					<div class="date col-xs-12 col-sm-12 col-md-4 col-lg-4">
 						<div class="row">
 							<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-								<label><span>Start date:</span>
+								<label><span>Start date: (mm/dd/yyyy)</span>
 									<form:input id="dateStart" path="date_start" type="text"
 									 cssClass="form-control" />
 								</label>	
 							</div>
 							<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-								<label><span>End date:</span>
+								<label><span>End date: (mm/dd/yyyy)</span>
 									<form:input id="dateEnd" path="date_end" type="text"
 									 cssClass="u-full-width form-control" />
 								 </label>

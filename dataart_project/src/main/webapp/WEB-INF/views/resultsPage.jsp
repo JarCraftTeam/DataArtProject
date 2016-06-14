@@ -33,7 +33,7 @@
 	<div id="main">
 		<div class="test-container">
 			<div class="row align-center">
-				<h2>Results of the "########" test</h2>
+				<h2>Results of the "########" test</h2> <%--${userTests.test.name}--%>
 			</div>
 	
 	
@@ -44,13 +44,13 @@
 						<th>User first name</th>
 						<th>User second name</th>
 						<th>User phone</th>
-						<th>User e-mail</th>
-						<th>Summary mark</th>
-						<th>test1</th>
-						<th>test2</th>
-						<th>test3</th>
-						<th>test4</th>
-						<th>test5</th>		
+						<th>User e-mail  </th>
+						<th>Summary mark  </th>
+						<th>Question1</th>
+						<th>Question2</th>
+						<th>Question3</th>
+						<th>Question4</th>
+						<th>Question5</th>		
 					</tr>
 				</thead>
 				<tbody>
@@ -62,12 +62,12 @@
 							<td class="test-about"><h5>${userTest.user.telephone}</h5></td>
 							<td class="test-about"><h5>${userTest.user.email}</h5></td>
 							<td class="test-about"><h5>${userTest.mark}</h5></td>
-							
-							<td class="test-about">
-								<c:forEach items="${userTest.answers}" var="eachUserAnswer">         
-									<h5>${eachUserAnswer.answerId}</h5> <%--NEED TO UPDATE TO <h5>${eachUserAnswer.mark}</h5>--%>
-								</c:forEach>
-							</td>
+
+							<c:forEach items="${userTest.answers}" var="eachUserAnswer">
+								<td class="test-about">         
+									<h5>${eachUserAnswer.id}</h5> <%--NEED TO UPDATE TO <h5>${eachUserAnswer.mark}</h5>--%>
+								</td>
+							</c:forEach>						
 						</tr>
 					</c:forEach>
 				</tbody>

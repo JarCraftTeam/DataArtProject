@@ -1,6 +1,12 @@
 package org.project.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ListIterator;
+
+import org.project.model.entity.Test;
 import org.project.model.entity.User;
+import org.project.model.entity.UserTest;
 import org.project.model.service.TestService;
 import org.project.model.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +38,16 @@ public class HomeController {
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String userHome(Model model) {
-		model.addAttribute("openTests", testService.getTests());
+		List<Test> allTests = testService.getTests();
+		List<Test> notPrivateTests = new ArrayList<Test>();
+		ListIterator iterator = allTests.listIterator();
+		while (iterator.hasNext()) {
+			Test eachTest = (Test) iterator.next();
+			if (!eachTest.isPriv()) {
+				notPrivateTests.add(eachTest);
+			}	
+		}
+		model.addAttribute("openTests", notPrivateTests);
 		return "usersFirstPage";
 	}
 

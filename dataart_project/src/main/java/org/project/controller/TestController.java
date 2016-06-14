@@ -176,14 +176,7 @@ public class TestController {
 				userTestsForResult.add(userTest);
 			}	
 		}
-		// for test, need delete
-		ListIterator iteratorTest = userTestsForResult.listIterator();
-		while (iteratorTest.hasNext()) {
-			System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! " + iteratorTest.next().toString());	
-		}
-
 		model.addAttribute("userTests", userTestsForResult);
-
 		return "resultsPage";
 	}
 
