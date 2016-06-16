@@ -5,6 +5,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserTestRepository  extends JpaRepository<UserTest, Long>{
+public interface UserTestRepository extends JpaRepository<UserTest, Long> {
+
+    public UserTest findById(Long id);
 
 }

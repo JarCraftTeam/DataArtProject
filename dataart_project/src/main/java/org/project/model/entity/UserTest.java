@@ -8,18 +8,18 @@ import java.util.List;
 @Table(name = "user_test")
 public class UserTest {
 
-	@Id
-	@GeneratedValue
-	@Column(name = "id")
-	private Long id;
+    @Id
+    @GeneratedValue
+    @Column(name = "id")
+    private Long id;
 
-	@ManyToOne
-	@JoinColumn(name = "user_id")
-	private User user;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
-	@ManyToOne
-	@JoinColumn(name = "test_id")
-	private Test test;
+    @ManyToOne
+    @JoinColumn(name = "test_id")
+    private Test test;
 
     public User getUser() {
         return user;
@@ -46,34 +46,34 @@ public class UserTest {
     }
 
     @Column(name = "mark")
-	private int mark;
+    private int mark;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "usertest_id")
-    List<UserAnswer> answers = new ArrayList<>();
+    private List<UserAnswer> userAnswers = new ArrayList<>();
 
-    public List<UserAnswer> getAnswers() {
-        return answers;
+    public List<UserAnswer> getUserAnswers() {
+        return userAnswers;
     }
 
-    public void setAnswers(List<UserAnswer> answers) {
-        this.answers = answers;
+    public void setUserAnswers(List<UserAnswer> userAnswers) {
+        this.userAnswers = userAnswers;
     }
 
     public Long getId() {
-		return id;
-	}
+        return id;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public int getMark() {
-		return mark;
-	}
+    public int getMark() {
+        return mark;
+    }
 
-	public void setMark(int mark) {
-		this.mark = mark;
-	}
+    public void setMark(int mark) {
+        this.mark = mark;
+    }
 
 }
