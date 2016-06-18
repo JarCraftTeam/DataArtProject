@@ -21,7 +21,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @Controller
-@RequestMapping("/UserTest")
+@RequestMapping("/take")
 public class UserTestController {
 
     @Autowired
@@ -57,7 +57,7 @@ public class UserTestController {
     @Autowired
     CheckBoxListRepository checkBoxListRepository;
 
-    @RequestMapping(value = "/take/{test.id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{test.id}", method = RequestMethod.GET)
     public String passTheTest(Model model, @PathVariable("test.id") Long testId) {
         UserTest userTest = new UserTest();
         Test test=testService.getTestById(testId);
@@ -127,6 +127,7 @@ public class UserTestController {
                 } else if ("Full".equals(questionType)) {
 
                     userAnswer.setAnswerText(userAnswerList.get(0));
+                    userAnswer.setMark(-1);
                     userAnswer.setMaxMark(questionMark);
                 }
             }
@@ -141,12 +142,12 @@ public class UserTestController {
         userTestMy.setUser(user);
         userTestMy.setUserAnswers(userAnswers);
 //        userAnswerService.addUserAnswer();
+        calculateMarkForUserTest(userTestMy);
         userTestService.addUserTest(userTestMy);
 
         //// TODO: 16.06.2016 проверка и сохранение юзертеста (все вопросы кроме открытых)       done
 
         //// TODO: 16.06.2016 если в юзертесте нет открытых вопросов - посчитать оценку за тест
-        calculateMarkForUserTest(userTestMy);
         status.setComplete();
 //        return "redirect:/testPassed/" + userTestMy.getId();
         return "redirect:/";
@@ -175,10 +176,8 @@ public class UserTestController {
         int mark = 0;
         final List<UserAnswer> userAnswers = userTestMy.getUserAnswers();
         for (UserAnswer userAnswer : userAnswers) {
-            if (questionService.getQuestionById(userAnswer.getQuestionId()).getType().getType().equals("Full")) {
-                return;
-            }
-            mark += userAnswer.getMark();
+            if (!questionService.getQuestionById(userAnswer.getQuestionId()).getType().getType().equals("Full")) 
+            	mark += userAnswer.getMark();
         }
         userTestMy.setMark(mark);
     }

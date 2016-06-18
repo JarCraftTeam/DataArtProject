@@ -24,7 +24,7 @@
 
 <h1>Fill the form, please</h1>
 
-<spring:url value="/CheckTest/saveCheckResult/" var="UrlSave"/>
+<spring:url value="/test/saveCheckResult" var="UrlSave"/>
 <form:form id="check-form" action="${UrlSave}" method="post"
            modelAttribute="testUserAnswer" enctype="multipart/form-data">
 
@@ -67,7 +67,7 @@
                     <input class="form-control" name="userAnswer.maxMark" type="number" title="Max Mark"
                            readonly="true"
                            value="${userAnswer.maxMark}"/>
-                    <form:input path="userAnswers[${i.index}].mark" title="Mark"/>
+                    <form:input path="userAnswers[${i.index}].mark" title="Mark" value="0"/>
 
                 </div>
             </div>

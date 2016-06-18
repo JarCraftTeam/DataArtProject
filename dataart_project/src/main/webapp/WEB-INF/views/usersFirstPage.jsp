@@ -64,7 +64,7 @@
 						<td class="test-name"><a href="<spring:url value="/test/view/${test.id}"/>"><h5>${test.name}</h5></a></td>
 						<td class="test-about">${test.text}</td>
 						<td class="row"><a id="add-btn" class="btn btn-primary"
-				            href="<spring:url value="/UserTest/take/${test.id}"/>">Take the test</a></td>
+				            href="<spring:url value="/take/${test.id}"/>">Take the test</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>

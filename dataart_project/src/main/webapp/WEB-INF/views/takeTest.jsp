@@ -49,7 +49,7 @@
 	
 	<div class="container">
 	
-	 <spring:url value="/UserTest/saveAnswers/" var="UrlSave"/>
+	 <spring:url value="/take/saveAnswers/" var="UrlSave"/>
 	 <form:form id="user-form" action="${UrlSave}" method="post"
            modelAttribute="userTest">
 	<form:input type="hidden" id="testTakeId" path="test.id" cssClass="u-full-width"

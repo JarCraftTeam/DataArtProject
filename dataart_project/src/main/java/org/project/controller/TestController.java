@@ -212,7 +212,7 @@ public class TestController {
             final List<UserAnswer> answers = userTest.getUserAnswers();
             for (UserAnswer userAnswer : answers) {
                 final Question question = questionService.getQuestionById(userAnswer.getQuestionId());
-                if (question.getType().getType().equals("Full") && userAnswer.getMark() == 0 && userTest.getMark() == 0) {
+                if (question.getType().getType().equals("Full") && userAnswer.getMark() == -1) {
                     userAnswer.setOpenQuestionText(question.getText());
                     userAnswers.add(userAnswer);
                 }
@@ -248,14 +248,17 @@ public class TestController {
                 List<UserAnswer> userAnswersForCurrentUserTest = userAnswerService.getUserAnswers().stream().filter(
                         userAnswer -> userAnswer.getUserTestId().equals(userTestId)).collect(Collectors.toList());
 
-                int markForUserTest = 0;
+                int markForUserTest = userTest.getMark();
+                System.out.println(markForUserTest);
                 for (UserAnswer userAnswer : userAnswersForCurrentUserTest) {
                     if (userAnswer.getMaxMark() < userAnswer.getMark()) {
                         markForUserTest += userAnswer.getMaxMark();
+                        if(userAnswer.getAnswerText()!=null) userAnswer.setMark(userAnswer.getMaxMark());
                     } else {
                         markForUserTest += userAnswer.getMark();
                     }
                 }
+                System.out.println(markForUserTest);
                 userTest.setMark(markForUserTest);
                 userTestService.updateUserTest(userTest);
             }

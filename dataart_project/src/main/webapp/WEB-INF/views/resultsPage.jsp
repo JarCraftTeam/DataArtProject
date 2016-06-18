@@ -32,7 +32,7 @@
 	<!-- LISTING STARTS HERE -->
 	<div id="main">
 		<div class="test-container">
-		<h1 class="results">Results for "${userTests[0].test.name}"</h1>
+		<h1 class="results">Results for "${test.name}"</h1>
 			<table class="results-table table table-striped table-hover">
 				<thead>
 					<tr>
@@ -58,7 +58,7 @@
 							<td>${userTest.mark}</td>
 								<c:forEach items="${userTest.userAnswers}" var="eachUserAnswer"> 
 								<td>        
-									${eachUserAnswer.maxMark} <%--NEED TO UPDATE TO ${eachUserAnswer.mark}--%>
+									${eachUserAnswer.mark} <%--NEED TO UPDATE TO ${eachUserAnswer.mark}--%>
 								</td>
 								</c:forEach>
 						</tr>

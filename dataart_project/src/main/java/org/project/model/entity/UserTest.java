@@ -49,7 +49,7 @@ public class UserTest {
     @Column(name = "mark")
     private int mark;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval=true)
     @JoinColumn(name = "usertest_id")
     private List<UserAnswer> userAnswers = new ArrayList<>();
 
