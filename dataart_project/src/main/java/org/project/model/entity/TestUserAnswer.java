@@ -1,30 +1,20 @@
 package org.project.model.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TestUserAnswer {
-    private Test test;
-    private User user;
+    private List<UserAnswer> userAnswers;
 
     public TestUserAnswer() {
+        userAnswers = new ArrayList<>();
     }
 
-    public TestUserAnswer(Test test, User user) {
-        this.test = test;
-        this.user = user;
+    public List<UserAnswer> getUserAnswers() {
+        return userAnswers;
     }
 
-    public Test getTest() {
-        return test;
-    }
-
-    public void setTest(Test test) {
-        this.test = test;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserAnswers(List<UserAnswer> userAnswers) {
+        this.userAnswers = userAnswers;
     }
 }

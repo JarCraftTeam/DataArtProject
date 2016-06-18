@@ -18,6 +18,7 @@ import java.util.Base64;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/UserTest")
@@ -28,6 +29,9 @@ public class UserTestController {
 
     @Autowired
     UserService userService;
+
+    @Autowired
+    QuestionService questionService;
 
     @Autowired
     UserTestService userTestService;
@@ -59,7 +63,7 @@ public class UserTestController {
         Test test=testService.getTestById(testId);
         userTest.setTest(encryptImages(test));
         userTest.setUser(new User());
-        userTest.setAnswers(new ArrayList<>());
+        userTest.setUserAnswers(new ArrayList<>());
         model.addAttribute("userTest", userTest);
         return "takeTest";
 //        return "takeTest2";
@@ -87,6 +91,7 @@ public class UserTestController {
             userAnswer.setQuestionId(questionId);
             boolean right = false;
             String questionType = question.getType().getType();
+            final int questionMark = question.getMark();
             List<String> userAnswerList = userTest.getTest().getQuestions().get(i).getUserAnswers();
             if (userAnswerList != null && !userAnswerList.isEmpty()) {
                 if ("One".equals(questionType)) {
@@ -100,6 +105,7 @@ public class UserTestController {
                     }
                     if (rightAnswerId.equals(userAnswerId)) {
                         right = true;
+                        userAnswer.setMark(questionMark);
                     }
                 } else if ("Several".equals(questionType)) {
                     Set<Long> userCheckBoxAnswerIds = new HashSet<>();
@@ -112,20 +118,16 @@ public class UserTestController {
                         userCheckBoxAnswerIds.add(userCheckBoxAnswerId);
                     }
                     userAnswer.setChAnswers(checkBoxLists);
-                    Set<Long> rightAnswers = new HashSet<>();
-                    for (Answer answer : question.getAnswers()) {
-                        if (answer.isRight()) {
-                            rightAnswers.add(answer.getId());
-                        }
-                    }
+                    Set<Long> rightAnswers = question.getAnswers().stream().filter(Answer::isRight).map(Answer::getId).collect(Collectors.toSet());
                     if (userCheckBoxAnswerIds.equals(rightAnswers)) {
                         right = true;
+                        userAnswer.setMark(questionMark);
                     }
 
                 } else if ("Full".equals(questionType)) {
 
                     userAnswer.setAnswerText(userAnswerList.get(0));
-
+                    userAnswer.setMaxMark(questionMark);
                 }
             }
             userAnswer.setAnswerRight(right);
@@ -137,9 +139,14 @@ public class UserTestController {
         UserTest userTestMy = new UserTest();
         userTestMy.setTest(takenTest);
         userTestMy.setUser(user);
-        userTestMy.setAnswers(userAnswers);
+        userTestMy.setUserAnswers(userAnswers);
 //        userAnswerService.addUserAnswer();
         userTestService.addUserTest(userTestMy);
+
+        //// TODO: 16.06.2016 проверка и сохранение юзертеста (все вопросы кроме открытых)       done
+
+        //// TODO: 16.06.2016 если в юзертесте нет открытых вопросов - посчитать оценку за тест
+        calculateMarkForUserTest(userTestMy);
         status.setComplete();
 //        return "redirect:/testPassed/" + userTestMy.getId();
         return "redirect:/";
@@ -163,6 +170,18 @@ public class UserTestController {
 		}
 		return test;
 	}
+
+    private void calculateMarkForUserTest(final UserTest userTestMy) {
+        int mark = 0;
+        final List<UserAnswer> userAnswers = userTestMy.getUserAnswers();
+        for (UserAnswer userAnswer : userAnswers) {
+            if (questionService.getQuestionById(userAnswer.getQuestionId()).getType().getType().equals("Full")) {
+                return;
+            }
+            mark += userAnswer.getMark();
+        }
+        userTestMy.setMark(mark);
+    }
 
 
 //    @RequestMapping(value = "/testPassed/{usertest.id}")

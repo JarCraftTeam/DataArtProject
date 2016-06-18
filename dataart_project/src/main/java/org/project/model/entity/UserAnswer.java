@@ -25,6 +25,18 @@ public class UserAnswer {
     @Column(name = "answer_right")
     private boolean answerRight;
 
+    @Column(name = "usertest_id")
+    private Long userTestId;
+
+    @Column(name = "mark")
+    private int mark;
+
+    @Column(name = "max_mark")
+    private int maxMark;
+
+    @Transient
+    private String openQuestionText;
+
     // link to checkbox
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "useranswer_id")
@@ -70,11 +82,43 @@ public class UserAnswer {
         this.answerRight = answerRight;
     }
 
+    public Long getUserTestId() {
+        return userTestId;
+    }
+
+    public void setUserTestId(Long userTestId) {
+        this.userTestId = userTestId;
+    }
+
     public List<CheckBoxList> getChAnswers() {
         return chAnswers;
     }
 
     public void setChAnswers(List<CheckBoxList> chAnswers) {
         this.chAnswers = chAnswers;
+    }
+
+    public int getMark() {
+        return mark;
+    }
+
+    public void setMark(int mark) {
+        this.mark = mark;
+    }
+
+    public int getMaxMark() {
+        return maxMark;
+    }
+
+    public void setMaxMark(int maxMark) {
+        this.maxMark = maxMark;
+    }
+
+    public String getOpenQuestionText() {
+        return openQuestionText;
+    }
+
+    public void setOpenQuestionText(String openQuestionText) {
+        this.openQuestionText = openQuestionText;
     }
 }
