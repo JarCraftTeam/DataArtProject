@@ -63,9 +63,9 @@
 							<td class="test-about"><h5>${userTest.user.email}</h5></td>
 							<td class="test-about"><h5>${userTest.mark}</h5></td>
 
-							<c:forEach items="${userTest.answers}" var="eachUserAnswer">
+							<c:forEach items="${userTest.userAnswers}" var="eachUserAnswer">
 								<td class="test-about">         
-									<h5>${eachUserAnswer.id}</h5> <%--NEED TO UPDATE TO <h5>${eachUserAnswer.mark}</h5>--%>
+									<h5>${eachUserAnswer.maxMark}</h5> <%--NEED TO UPDATE TO <h5>${eachUserAnswer.mark}</h5>--%>
 								</td>
 							</c:forEach>						
 						</tr>
