@@ -9,11 +9,11 @@
 	<security:http auto-config="true" use-expressions="false">
 		<security:form-login login-page="/login" login-processing-url="/login"
 		username-parameter="custom_username" password-parameter="custom_password"
-		default-target-url="/test/"
+		default-target-url="/admin/"
 		always-use-default-target="true"
 		authentication-failure-url="/login?error=true"/> 
 		<security:logout logout-url="/logout" logout-success-url="/login?logout=true"/>
-		<security:intercept-url pattern="/test/*" access="ROLE_ADMIN"/>
+		<security:intercept-url pattern="/admin/*" access="ROLE_ADMIN"/>
 		<security:intercept-url pattern="/**" access="ROLE_ANONYMOUS,ROLE_ADMIN"/>
 	</security:http>
 	

@@ -13,7 +13,7 @@ public class UserTest {
     @Column(name = "id")
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
     private User user;
 
@@ -49,7 +49,7 @@ public class UserTest {
     @Column(name = "mark")
     private int mark;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval=true)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "usertest_id")
     private List<UserAnswer> userAnswers = new ArrayList<>();
 

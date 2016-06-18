@@ -35,7 +35,7 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.multipart.MultipartFile;
 
 @Controller
-@RequestMapping("/test")
+@RequestMapping("/admin")
 public class TestController {
 
 	@Autowired
@@ -84,7 +84,7 @@ public class TestController {
 		test = addImages(test, questionImage, answerImage);
 
 		testService.addTest(test);
-		return "redirect:/test/";
+		return "redirect:/admin/";
 	}
 
 	@RequestMapping(value = "/view/{test.id}")
@@ -102,8 +102,11 @@ public class TestController {
 		nTest = cleanExtra(nTest);
 		nTest = addImages(nTest, questionImage, answerImage);
 		test = compareImages(test, nTest);
+		
+		test.getUserTests().clear();
+		
 		testService.updateTest(test);
-		return "redirect:/test/";
+		return "redirect:/admin/";
 	}
 
 	@RequestMapping(value = "/update/{test.id}", method = RequestMethod.GET)
@@ -117,7 +120,7 @@ public class TestController {
 	@RequestMapping(value = "/delete/{test.id}", method = RequestMethod.GET)
 	public String deleteTest(@PathVariable("test.id") Long testId) {
 		testService.deleteTest(testId);
-		return "redirect:/test/";
+		return "redirect:/admin/";
 	}
 
 	private Test cleanExtra(Test test) {
@@ -222,7 +225,7 @@ public class TestController {
         final TestUserAnswer testUserAnswer = new TestUserAnswer();
         testUserAnswer.setUserAnswers(userAnswers);
         if (userAnswers.size() == 0) {
-            return "redirect:/test/"; //nothing to check
+            return "redirect:/admin/?nothing=true"; //nothing to check
         }
         model.addAttribute("testUserAnswer", testUserAnswer);
 
@@ -249,7 +252,6 @@ public class TestController {
                         userAnswer -> userAnswer.getUserTestId().equals(userTestId)).collect(Collectors.toList());
 
                 int markForUserTest = userTest.getMark();
-                System.out.println(markForUserTest);
                 for (UserAnswer userAnswer : userAnswersForCurrentUserTest) {
                     if (userAnswer.getMaxMark() < userAnswer.getMark()) {
                         markForUserTest += userAnswer.getMaxMark();
@@ -258,13 +260,12 @@ public class TestController {
                         markForUserTest += userAnswer.getMark();
                     }
                 }
-                System.out.println(markForUserTest);
                 userTest.setMark(markForUserTest);
                 userTestService.updateUserTest(userTest);
             }
         }
         status.setComplete();
-        return "redirect:/test/";
+        return "redirect:/admin/";
     }
 
 }

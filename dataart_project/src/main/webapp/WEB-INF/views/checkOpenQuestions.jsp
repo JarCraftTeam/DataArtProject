@@ -7,7 +7,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>Insert title here</title>
+    <title>Question Check</title>
 
     <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600"
           rel="stylesheet" type="text/css">
@@ -24,7 +24,7 @@
 
 <h1>Fill the form, please</h1>
 
-<spring:url value="/test/saveCheckResult" var="UrlSave"/>
+<spring:url value="/admin/saveCheckResult" var="UrlSave"/>
 <form:form id="check-form" action="${UrlSave}" method="post"
            modelAttribute="testUserAnswer" enctype="multipart/form-data">
 

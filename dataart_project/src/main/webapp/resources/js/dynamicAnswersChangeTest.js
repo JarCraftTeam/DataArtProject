@@ -37,7 +37,7 @@ $(document).ready(function() {
 		+'<div class="question_type col-xs-6 col-sm-6 col-md-3 col-lg-3">'
 		+'<p>Question type:</p>'
 		+'<select name="questions['+x+'].type.id"'
-    	+'class="u-full-width form-control">'
+    	+'class="u-full-width form-control question-type">'
     	+'<option value="1">One</option>'
     	+'<option value="2">Several</option>'
     	+'<option value="3">Full</option>'
@@ -191,6 +191,10 @@ $(document).ready(function() {
     $(document).on('click', '.del-btn-icon-ques', function() {
     	$(this).parents('.question-container').remove();
     });
-    
+    $(document).on('change','.question-type',function(){
+        if ($(this).val()==3) {
+        		$(this).closest(".row").siblings(".answer-container").empty();
+        	  }
+       });
 }); 
 

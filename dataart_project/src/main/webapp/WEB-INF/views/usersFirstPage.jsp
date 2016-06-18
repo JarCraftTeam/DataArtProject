@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>List of tests</title>
+<title>JarCraft Project</title>
 <link rel="stylesheet"
 		href="<spring:url value="/resources/css/bootstrap.min.css"/>"
 		type="text/css" />

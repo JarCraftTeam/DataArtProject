@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Add new test</title>
+<title>Add New Test</title>
 
 	<!-- Styles -->
 	
@@ -23,6 +23,9 @@
 		href="<spring:url value="/resources/css/bootstrap-theme.css"/>"
 		type="text/css" />
 <link rel="stylesheet"
+		href="<spring:url value="/resources/css/font-awesome.min.css"/>"
+		type="text/css" />
+<link rel="stylesheet"
 	href="<spring:url value="/resources/css/addTest.css"/>" type="text/css" />
 	
 	<!-- Scripts -->
@@ -34,11 +37,16 @@
 	
 </head>
 
+
 <body>
 <jsp:include page="headerNonActive.jsp"></jsp:include>
 
 	<div class="container">	
-		<spring:url value="/test/add/saved" var="UrlSave" />
+	<br>
+	<div class="alert alert-info">
+  		<h5><strong>Info!</strong> Proceed with caution, future test update or removal will lead to loss of all results.</h5>
+	</div>
+		<spring:url value="/admin/add/saved" var="UrlSave" />
 		<form:form id="test-form" action="${UrlSave}" method="post"
 			modelAttribute="newTest" enctype="multipart/form-data">
 			<div class="formHead">
@@ -46,7 +54,7 @@
 					<div class="col-xs-8 col-sm-8 col-md-6 col-lg-6">
 						<label class="testName">
 							<span>Name:</span>
-							<form:input id="addName" path="name" cssClass="u-full-width form-control" />
+							<form:input id="addName" path="name" cssClass="u-full-width form-control" required="true"/>
 						</label>
 					</div>
 					<div class="activity col-xs-4 col-sm-4 col-md-2 col-lg-2">
@@ -56,15 +64,15 @@
 					<div class="date col-xs-12 col-sm-12 col-md-4 col-lg-4">
 						<div class="row">
 							<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-								<label><span>Start date: (mm/dd/yyyy)</span>
+								<label><span>Start date:</span>
 									<form:input id="dateStart" path="date_start" type="text"
-									 cssClass="form-control" />
+									 cssClass="form-control" required="true"/>
 								</label>	
 							</div>
 							<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-								<label><span>End date: (mm/dd/yyyy)</span>
+								<label><span>End date:</span>
 									<form:input id="dateEnd" path="date_end" type="text"
-									 cssClass="u-full-width form-control" />
+									 cssClass="u-full-width form-control" required="true"/>
 								 </label>
 							</div>
 						</div>
@@ -73,7 +81,7 @@
 				<div class="row">
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 						<label>About:</label>
-						<form:textarea path="text" cssClass="form-control" rows="5" placeholder="About test"/>
+						<form:textarea path="text" cssClass="form-control" rows="5" placeholder="About test" required="true"/>
 					</div>
 				</div>
 				<div class="row">
@@ -119,7 +127,7 @@
 					<div class="question_type col-xs-6 col-sm-6 col-md-3 col-lg-3">
 						<p>Question type:</p>
 						<form:select id="addQuestionType1" path="questions[0].type.id"
-							cssClass="u-full-width form-control">
+							cssClass="u-full-width form-control question-type">
 							<c:forEach items="${types}" var="qt" varStatus="i">
 								<form:option value="${qt.id}">${qt.type}</form:option>
 							</c:forEach>
@@ -192,5 +200,15 @@
 	</footer>
 <script src="<spring:url value="/resources/js/jquery-2.2.3.min.js"/>"></script>
 	<script src="<spring:url value="/resources/js/imagePreview.js"/>"></script>
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment-with-locales.min.js"></script>
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+	<script>
+	$(document).ready(function(){
+		$("#dateStart").datetimepicker({format: 'DD/MM/YYYY'});
+		$("#dateEnd").datetimepicker({format: 'DD/MM/YYYY'});
+	});
+	</script>
 </body>
 </html>

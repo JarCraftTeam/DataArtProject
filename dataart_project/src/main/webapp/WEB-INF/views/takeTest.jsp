@@ -7,7 +7,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>List of tests</title>
+	<title>Taking Test</title>
 
 	<!-- Styles -->
 	
@@ -39,7 +39,7 @@
 			</h2>
 			<div class="main-nav">
 				<ul>
-					<li ><a href="/dataart_project">Test List</a></li>
+					<li ><a href="/dataart_project/">Test List</a></li>
 					<li><a href="#">About Us</a></li>
 				</ul>
 			</div>
@@ -94,9 +94,9 @@
 	        		<ul>
 	        		<c:forEach items="${question.answers}" var="answer" varStatus="j">
 	        			<li>
-	        				<form:radiobutton path="test.questions[${i.index}].userAnswers" id="ans" cssClass="radio-ans" 
+	        				<form:radiobutton path="test.questions[${i.index}].userAnswers" id="ans${i.count}-${j.count}" cssClass="radio-ans" 
 	        				value="${answer.id}"/>
-			        		<label for="ans">${answer.text}</label>
+			        		<label for="ans${i.count}-${j.count}">${answer.text}</label>
 			        		<c:if test="${answer.encryptedImage != 'null'}">
 								<img class="ans" src="data:image/jpeg;base64,${answer.encryptedImage}" alt="No question image">
 							</c:if>
@@ -108,9 +108,9 @@
 	        		<ul>
 	        		<c:forEach items="${question.answers}" var="answer" varStatus="j">
 	        			<li>
-	        				<form:checkbox path="test.questions[${i.index}].userAnswers" id="ans" cssClass="checkbox-ans" 
+	        				<form:checkbox path="test.questions[${i.index}].userAnswers" id="ans${i.count}-${j.count}" cssClass="checkbox-ans" 
 	        				value="${answer.id}"/>
-			        		<label for="ans">${answer.text}</label>
+			        		<label for="ans${i.count}-${j.count}">${answer.text}</label>
 			        		<c:if test="${answer.encryptedImage != 'null'}">
 								<img class="ans" src="data:image/jpeg;base64,${answer.encryptedImage}" alt="No question image">
 							</c:if>
@@ -123,6 +123,7 @@
 	        		 cssClass="form-control" placeholder="Enter your answer"/>
 	        	</c:when>
 	        	</c:choose>
+	        	</div>
 	        </c:forEach>
         </fieldset>
         <button class="btn __darkblue btn-lg" type="submit">Submit</button>

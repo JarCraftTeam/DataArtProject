@@ -20,7 +20,7 @@ public class Test {
 	@JoinColumn(name = "test_id")
 	List<Question> questions = new ArrayList<>();
 
-	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+	@OneToMany(cascade = CascadeType.ALL,orphanRemoval=true)
 	@JoinColumn(name = "test_id")
 	List<UserTest> userTests = new ArrayList<>();
 

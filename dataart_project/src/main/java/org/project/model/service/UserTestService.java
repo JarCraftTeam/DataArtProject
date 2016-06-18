@@ -16,6 +16,14 @@ public class UserTestService {
     public List<UserTest> getUserTests() {
         return userTestRepository.findAll();
     }
+    
+    public List<UserTest> getUserTestsByTestId(Long id){
+    	return userTestRepository.findAllByTestId(id);
+    }
+    
+    public void deleteUserTest(Long id){
+    	userTestRepository.delete(id);
+    }
 
     public UserTest getUserTestById(Long id) {
         return userTestRepository.findById(id);

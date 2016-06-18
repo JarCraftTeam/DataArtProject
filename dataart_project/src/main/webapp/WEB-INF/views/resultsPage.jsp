@@ -6,7 +6,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>List of tests</title>
+	<title>Test Results</title>
 
 	<!-- Styles -->
 	<link rel="stylesheet"
@@ -27,7 +27,7 @@
 		
 </head>
 <body>
-	<jsp:include page="header.jsp"></jsp:include>
+	<jsp:include page="headerNonActive.jsp"></jsp:include>
 	
 	<!-- LISTING STARTS HERE -->
 	<div id="main">
