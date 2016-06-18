@@ -44,7 +44,7 @@
 			</div>
 			<div class="main-nav">
 				<ul>
-					<li><a href="#">Home</a></li>
+					<li><a href="/dataart_project/">Home</a></li>
 					<li class="active"><a href="/dataart_project/test/">Test List</a></li>
 					<li><a href="#">Help</a></li>
 				</ul>
@@ -85,6 +85,8 @@
 									<a id="del-btn" href="delete/${test.id}"><span class="glyphicon glyphicon-remove fcolor-orange" aria-hidden="true"></span></a>
 								</div>
 							</td>
+							<td class="row"><a id="add-btn" class="btn btn-primary"
+				            			href="<spring:url value="/test/check/${test.id}"/>" style="margin-right:5px;">Check</a></td>
 							<td class="row"><a id="add-btn" class="btn btn-primary"
 				            			href="<spring:url value="/test/results/${test.id}"/>">Results</a></td>
 						</tr>

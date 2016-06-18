@@ -1,0 +1,50 @@
+
+
+.controls{
+	height:24px;
+	line-height:24px;
+}
+
+#cha-btn,
+#del-btn{
+    display: none;
+}
+
+.test-about:hover #cha-btn,
+.test-about:hover #del-btn{
+	display:inline-block;
+}
+
+.test-about{
+	font-size:12px;
+}
+
+.test-table{
+	width: 90vw;
+}
+
+.test-numb{
+	width:5%;
+}
+.test-name{
+	width:15%;
+}
+.test-about{
+	width:80%;
+}
+h1.results {
+	font-size: 30px;
+	text-align: center;
+}
+.results-table {
+	font-size: 14px;
+	width:100%;
+}
+
+.results-table th {
+	font-size:18px;
+}
+.results-table .user-info {
+	width: 15%;
+}
+

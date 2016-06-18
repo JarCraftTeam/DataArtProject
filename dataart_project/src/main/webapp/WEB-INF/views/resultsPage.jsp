@@ -16,7 +16,7 @@
 		href="<spring:url value="/resources/css/bootstrap-theme.css"/>"
 		type="text/css" />
 	<link rel="stylesheet"
-		href="<spring:url value="/resources/css/test.css"/>" type="text/css" />
+		href="<spring:url value="/resources/css/results.css"/>" type="text/css" />
 
 	<!-- Scripts -->
 	
@@ -32,42 +32,35 @@
 	<!-- LISTING STARTS HERE -->
 	<div id="main">
 		<div class="test-container">
-			<div class="row align-center">
-				<h2>Results of the "########" test</h2> <%--${userTests.test.name}--%>
-			</div>
-	
-	
-			<table class="test-table">
+		<h1 class="results">Results for "${userTests[0].test.name}"</h1>
+			<table class="results-table table table-striped table-hover">
 				<thead>
 					<tr>
-						<th>N</th>
-						<th>User first name</th>
-						<th>User second name</th>
-						<th>User phone</th>
-						<th>User e-mail  </th>
-						<th>Summary mark  </th>
-						<th>Question1</th>
-						<th>Question2</th>
-						<th>Question3</th>
-						<th>Question4</th>
-						<th>Question5</th>		
+						<th class="test-numb">N</th>
+						<th class="user-info">User first name</th>
+						<th class="user-info">User second name</th>
+						<th class="user-info">User phone</th>
+						<th class="user-info">User e-mail</th>
+						<th class="test-numb">Summary mark</th>
+						<c:forEach items="${test.questions}" varStatus="status"> 
+							<th class="test-numb">Que. ${status.count}</th>
+						</c:forEach>
 					</tr>
 				</thead>
-				<tbody>
+				<tbody class="">
 					<c:forEach items="${userTests}" var="userTest" varStatus="i">
 						<tr>
-							<td class="test-numb"><h5>${i.count}</h5></td>
-							<td class="test-about"><h5>${userTest.user.first_name}</h5></td>
-							<td class="test-about"><h5>${userTest.user.second_name}</h5></td>
-							<td class="test-about"><h5>${userTest.user.telephone}</h5></td>
-							<td class="test-about"><h5>${userTest.user.email}</h5></td>
-							<td class="test-about"><h5>${userTest.mark}</h5></td>
-
-							<c:forEach items="${userTest.userAnswers}" var="eachUserAnswer">
-								<td class="test-about">         
-									<h5>${eachUserAnswer.maxMark}</h5> <%--NEED TO UPDATE TO <h5>${eachUserAnswer.mark}</h5>--%>
+							<td>${i.count}</td>
+							<td>${userTest.user.first_name}</td>
+							<td>${userTest.user.second_name}</td>
+							<td>${userTest.user.telephone}</td>
+							<td>${userTest.user.email}</td>
+							<td>${userTest.mark}</td>
+								<c:forEach items="${userTest.userAnswers}" var="eachUserAnswer"> 
+								<td>        
+									${eachUserAnswer.maxMark} <%--NEED TO UPDATE TO ${eachUserAnswer.mark}--%>
 								</td>
-							</c:forEach>						
+								</c:forEach>
 						</tr>
 					</c:forEach>
 				</tbody>
