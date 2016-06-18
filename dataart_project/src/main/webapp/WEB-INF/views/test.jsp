@@ -85,6 +85,8 @@
 									<a id="del-btn" href="delete/${test.id}"><span class="glyphicon glyphicon-remove fcolor-orange" aria-hidden="true"></span></a>
 								</div>
 							</td>
+							<td class="row"><a id="add-btn" class="btn btn-primary"
+				            			href="<spring:url value="/test/results/${test.id}"/>">Results</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>

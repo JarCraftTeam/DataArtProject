@@ -1,13 +1,18 @@
 package org.project.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Base64;
+import java.util.List;
+import java.util.ListIterator;
 
 import org.project.model.entity.Test;
+import org.project.model.entity.UserTest;
 import org.project.model.repository.AnswerRepository;
 import org.project.model.repository.TypeRepository;
 import org.project.model.service.TestService;
 import org.project.model.service.UserService;
+import org.project.model.service.UserTestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,6 +38,10 @@ public class TestController {
 	
 	@Autowired
 	AnswerRepository answerRepository;
+	
+	@Autowired
+	UserTestService userTestService;
+
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String goTest(Model model) {
@@ -155,6 +164,20 @@ public class TestController {
 		}
 		return test;
 	}
-
+	
+	@RequestMapping(value = "/results/{test.id}", method = RequestMethod.GET)
+	public String resultsOfTest(Model model, @PathVariable("test.id") Long testId) {
+		List<UserTest> userTestsAll = userTestService.getUserTests();
+		List<UserTest> userTestsForResult = new ArrayList<UserTest>();
+		ListIterator iterator = userTestsAll.listIterator();
+		while (iterator.hasNext()) {
+			UserTest userTest = (UserTest) iterator.next();
+			if (userTest.getTest().getId().equals(testId)) {
+				userTestsForResult.add(userTest);
+			}	
+		}
+		model.addAttribute("userTests", userTestsForResult);
+		return "resultsPage";
+	}
 
 }
