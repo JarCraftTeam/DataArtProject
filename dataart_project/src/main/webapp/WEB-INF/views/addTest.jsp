@@ -106,7 +106,7 @@
 				<div class="row">
 					<div class="question col-xs-12 col-sm-12 col-md-7 col-lg-7">
 						<p>#1 Question:</p>
-						<form:textarea path="questions[0].text" rows="7" class="form-control" placeholder="Question text"/>
+						<form:textarea path="questions[0].text" rows="7" class="form-control" placeholder="Question text" required="true"/>
 					</div>	
 					<div class="image-container col-xs-12 col-sm-12 col-md-5 col-lg-5">
 						
@@ -118,7 +118,7 @@
 								<a type="button" class="btn __darkblue btn-lg">
   									<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
 								</a>
-								<input class="img-loader" name="imageLoaderQst" type="file" style="display: none;">
+								<input class="img-loader" name="imageLoaderQst" type="file" style="display: none;" accept="image/*">
 							</label>
 						</div>	
 					</div>
@@ -136,13 +136,9 @@
 					<div class="marks col-xs-6 col-sm-6 col-md-4 col-lg-4">
 						<p>Mark for the question</p>
 							<div class="row">
-								<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-									<label>correct answer</label>
-									<form:input cssClass="form-control" path="questions[0].mark" type="number" value="1"/>
-								</div>	
-								<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-									<label>incorrect answer</label>
-									<input class="form-control" type="number" value="-1"/>
+								<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-md-offset-2">
+								<br>
+									<form:input cssClass="form-control" path="questions[0].mark" type="number" value="1" required="true"/>
 								</div>	
 							</div>	
 					</div>	
@@ -158,7 +154,7 @@
 						</div>
 						<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 							<form:input id="answerText" path="questions[0].answers[0].text"
-								placeholder="Answer text" cssClass="u-full-width form-control" />
+								placeholder="Answer text" cssClass="u-full-width form-control" required="true"/>
 						</div>		
 						<div class="show-img answ col-xs-2 col-sm-2 col-md-2 col-lg-2">
 							<img class="img-previewer" src="<spring:url value="../resources/img/no_image.png"/>" alt="No answer image">
@@ -168,7 +164,7 @@
 								<a type="button" class="btn __darkblue btn-lg">
   									<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
 								</a>
-								<input class="img-loader" name="imageLoaderAnsw" type="file" style="display: none;">
+								<input class="img-loader" name="imageLoaderAnsw" type="file" style="display: none;" accept="image/*">
 							</label>
 						</div>	
 						

@@ -63,21 +63,21 @@
 	        <div class="row">
  			 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 		        <label for="inputFirstName">First Name</label>
-		        <form:input path="user.first_name" type="text" id="inputFirstName" cssClass="form-control" placeholder="Name"/>
+		        <form:input path="user.first_name" type="text" id="inputFirstName" cssClass="form-control" placeholder="Name" required="true"/>
 		     </div>
 		     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 		        <label for="inputLastName">Last Name</label>
-		        <form:input path="user.second_name" type="text" id="inputPhone" cssClass="form-control" placeholder="Last Name" />
+		        <form:input path="user.second_name" type="text" id="inputPhone" cssClass="form-control" placeholder="Last Name" required="true"/>
 	       	 </div>
 	        </div>
 	        <div class="row">
  			 	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 			        <label for="inputPhone">Phone</label>
-			        <form:input path="user.telephone" type="text" id="inputLastName" cssClass="form-control" placeholder="+38 xxx xxx xx xx"/>
+			        <form:input path="user.telephone" type="text" id="inputLastName" cssClass="form-control" placeholder="+38 xxx xxx xx xx" required="true"/>
 		        </div>
 		        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 			        <label for="inputEmail">Email address</label>
-			        <form:input path="user.email" type="email" id="inputEmail" cssClass="form-control" placeholder="Email address" />
+			        <form:input path="user.email" type="email" id="inputEmail" cssClass="form-control" placeholder="Email address" required="true"/>
 			    </div>
 		    </div>
         </fieldset>
