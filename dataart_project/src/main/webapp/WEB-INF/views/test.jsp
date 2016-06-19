@@ -59,8 +59,8 @@
 			</div>
 			<div class="main-nav">
 				<ul>
-					<li><a href="/dataart_project/">Go User</a></li>
-					<li class="active"><a href="/dataart_project/admin/">Test List</a></li>
+					<li><a href="/">Go User</a></li>
+					<li class="active"><a href="/admin/">Test List</a></li>
 					<li><a href="help">Help</a></li>
 				</ul>
 			</div>
