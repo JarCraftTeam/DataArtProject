@@ -2,6 +2,9 @@
 		<div class="wrapper">
 			<!-- <img src="/resources/img/logo.png" alt="" /> -->
 			<h1 class="fcolor-sky">IT School</h1>
+			<h2 class="fcolor-sky">
+				Admin Panel
+			</h2>
 			<div class="admin-panel">
 				<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>Exit Admin Panel
 			</div>

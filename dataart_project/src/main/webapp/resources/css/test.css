@@ -3,16 +3,9 @@
 .controls{
 	height:24px;
 	line-height:24px;
-}
-
-#cha-btn,
-#del-btn{
-    display: none;
-}
-
-.test-about:hover #cha-btn,
-.test-about:hover #del-btn{
-	display:inline-block;
+    margin-bottom: 12px;
+    margin-top: 6px;
+    border-bottom: 1px solid #bce0ff;
 }
 
 .test-about{
@@ -33,3 +26,25 @@ table td.test-about{
 	width:80%;
 }
 
+.functions{
+	font-size: 14px;
+    padding-right: 6px;
+}
+
+.functions .glyphicon{
+	padding-right: 3px;
+}
+
+.combine{
+	width: 50%;
+    display: inline-block;
+    white-space: normal;
+ }
+   
+ .combine.__1{
+ 	padding-right: 1%;
+ }
+
+ .combine.__2{
+ 	padding-left: 1%;
+ }

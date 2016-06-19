@@ -43,7 +43,7 @@
 <!-- /HEADER -->
 <!-- LISTING STARTS HERE -->
 <div id="main">
-	<div class="test-container">
+	<div class="global-container">
 		<div class="row">
 			<h2>Test list:</h2>
 		</div>

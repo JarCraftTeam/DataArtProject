@@ -23,13 +23,18 @@
 	border-bottom: 3px solid #F26101;
 }
 
+label {
+	font-size: 12px;
+}
+
+
 .wrapper{
 	margin: 0 auto;
 	max-width:900px;
 	text-align: center;
 }
 
-.test-container{
+.global-container{
 	margin-top:2%;
 	margin-left:5%;
 	margin-bottom:2%;
@@ -137,6 +142,17 @@
 		cursor: pointer;
 	}
  
+ .__orange{
+	 background-color: #F26101;
+	 color: #ffffff;
+ }
+ 
+	.__orange:hover,
+	.__orange:focus{
+		background-color:#91BED4;
+		color: #ffffff;
+		cursor: pointer;
+	}
  .fcolor-darkblue{
  	color:#003354;
  }
@@ -161,6 +177,55 @@
  	margin-bottom: 24px;
  }
  
+#UserAnswer {
+	font-size:18px;
+	padding:5px;
+	margin:5px;
+}
+
+#mark-control{
+	margin: 0 auto;
+	padding: 5px;
+	max-width:200px;
+	text-align:center;
+}
+
+.form-control{
+	margin-bottom: 12px;
+}
+
+.white-popup-block {
+    background: #FFF;
+    padding: 20px 30px;
+    text-align: left;
+    max-width: 650px;
+    margin: 40px auto;
+    position: relative;
+}
+
+#test-form #textarea{
+	width:100%;
+}
+
+.style-none{
+	list-style-type: none;
+	padding: 0;
+	white-space: nowrap;
+}
+
+.f14{
+	font-size: 14px;
+}
+
+.form-checkbox{
+	margin-bottom: 12px;
+    margin-right: 6px;
+}
+
+.form-checkbox input{
+	margin-right: 6px;
+}
+
  /*-----Jar Theme End-----*/
  
 .btn-default,
