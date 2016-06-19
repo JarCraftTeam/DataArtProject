@@ -24,6 +24,8 @@
 		src="<spring:url value="/resources/js/jquery-2.2.3.min.js"/>"></script>
 	<script 
 		src="<spring:url value="/resources/js/helper.js"/>"></script>
+	<script 
+		src="<spring:url value="/resources/js/sort.js"/>"></script>	
 		
 </head>
 <body>
@@ -34,7 +36,7 @@
 		<div class="test-container">
 		<h1 class="results">Results for "${test.name}"</h1>
 		<a class="btn __darkblue" href="downloadExcel/${test.id}"><span class="glyphicon glyphicon-floppy-disk"></span> Export to Excel</a>
-			<table class="results-table table table-striped table-hover">
+			<table id="results-table" class="results-table table table-striped table-hover">
 				<thead>
 					<tr>
 						<th class="test-numb">N</th>
@@ -59,7 +61,10 @@
 							<td>${userTest.mark}</td>
 								<c:forEach items="${userTest.userAnswers}" var="eachUserAnswer"> 
 								<td>        
-									${eachUserAnswer.mark} <%--NEED TO UPDATE TO ${eachUserAnswer.mark}--%>
+									<c:choose>
+									<c:when test="${eachUserAnswer.mark == -1}">Not Checked</c:when>
+									<c:otherwise>${eachUserAnswer.mark}</c:otherwise>
+									</c:choose>
 								</td>
 								</c:forEach>
 						</tr>
@@ -75,7 +80,7 @@
 			<p>Copyright: JarCraft 2016</p>
 		</div>
 	</footer>
-	
+		
 
 </body>
 </html>

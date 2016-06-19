@@ -85,7 +85,7 @@
 	                   <div id="mark-control"> <input class="form-control" name="userAnswer.maxMark" type="number" title="Max Mark"
 	                           readonly="true"
 	                           value="${userAnswer.maxMark}"/>
-	                    <form:input class="form-control" path="userAnswers[${i.index}].mark" title="Mark"/>
+	                    <form:input class="form-control" path="userAnswers[${i.index}].mark" title="Mark" value="0"/>
 						</div>
                 </div>
             </div>
