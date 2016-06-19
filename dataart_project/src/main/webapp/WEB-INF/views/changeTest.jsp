@@ -98,7 +98,7 @@
 	                </div>
 	                <div class="link col-xs-12 col-sm-12 col-md-7 col-lg-7">
 	                    <p class="">Link</p>
-	                    <input id="link" class="form-control" />
+	                    <input id="link" class="form-control" value="http://localhost:8080/dataart_project/take/${test.id}"/>
 	                </div>
 	                
 	            </div>

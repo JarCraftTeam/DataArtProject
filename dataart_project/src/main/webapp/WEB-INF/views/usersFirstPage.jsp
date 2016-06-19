@@ -32,6 +32,9 @@
 			<h2 class="fcolor-sky">
 				User panel
 			</h2>
+			<div class="admin-panel">
+				<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span><a href="admin/">Go Admin Panel</a>
+			</div>
 			<div class="main-nav">
 				<ul>
 					<li class="active"><a href="#">Test List</a></li>
