@@ -33,6 +33,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("/admin")
@@ -202,6 +203,13 @@ public class TestController {
 		model.addAttribute("userTests", userTestsForResult);
 		model.addAttribute("test", testService.getTestById(testId));
 		return "resultsPage";
+	}
+	
+	@RequestMapping(value = "/results/downloadExcel/{test.id}", method = RequestMethod.GET)
+	public ModelAndView downloadExcel(@PathVariable("test.id") Long testId) {
+		Test test = testService.getTestById(testId);
+		ModelAndView mdv = new ModelAndView("excelView","test",test);
+		return mdv;
 	}
 	
 	@RequestMapping(value = "/check/{test.id}", method = RequestMethod.GET)

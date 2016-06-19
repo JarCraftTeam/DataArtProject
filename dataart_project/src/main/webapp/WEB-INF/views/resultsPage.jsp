@@ -33,6 +33,7 @@
 	<div id="main">
 		<div class="test-container">
 		<h1 class="results">Results for "${test.name}"</h1>
+		<a class="btn __darkblue" href="downloadExcel/${test.id}"><span class="glyphicon glyphicon-floppy-disk"></span> Export to Excel</a>
 			<table class="results-table table table-striped table-hover">
 				<thead>
 					<tr>
