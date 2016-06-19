@@ -3,6 +3,7 @@ package org.project.controller;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Base64;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.ListIterator;
@@ -10,6 +11,7 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import org.project.model.entity.Answer;
 import org.project.model.entity.Question;
 import org.project.model.entity.Test;
 import org.project.model.entity.TestUserAnswer;
@@ -75,6 +77,46 @@ public class TestController {
 		model.addAttribute("newTest", new Test());
 		model.addAttribute("types", typeRepository.findAll());
 		return "addTest";
+	}
+	
+	@RequestMapping(value = "/copy", method = RequestMethod.POST)
+	public String copyTest(@RequestParam("test-id") Long id,
+			@RequestParam("name") String name,
+			@RequestParam("about") String about,
+			@RequestParam("publicity_check") int priv,
+			@RequestParam("date_start") Date dateStart,
+			@RequestParam("date_end") Date dateEnd) {
+
+		Test originalTest=testService.getTestById(id);
+		Test copyTest=new Test();
+		
+		boolean privat;
+		if(priv==1) privat=true;
+		else privat=false;
+		
+		copyTest.setName(name);
+		copyTest.setText(about);
+		copyTest.setPriv(privat);
+		copyTest.setDate_start(dateStart);
+		copyTest.setDate_end(dateEnd);
+		for(Question que: originalTest.getQuestions()){
+			Question copyQue=new Question();
+			copyQue.setText(que.getText());
+			copyQue.setType(que.getType());
+			copyQue.setPicture(que.getPicture());
+			copyQue.setMark(que.getMark());
+			for(Answer ans: que.getAnswers()){
+				Answer copyAns=new Answer();
+				copyAns.setText(ans.getText());
+				copyAns.setRight(ans.isRight());
+				copyAns.setPicture(ans.getPicture());
+				copyQue.getAnswers().add(copyAns);
+			}
+			copyTest.getQuestions().add(copyQue);
+		}
+		
+		testService.addTest(copyTest);
+		return "redirect:/admin/";
 	}
 
 	@RequestMapping(value = "/add/saved", method = RequestMethod.POST)

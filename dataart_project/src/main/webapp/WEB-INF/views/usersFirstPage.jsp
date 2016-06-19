@@ -46,7 +46,7 @@
 <!-- /HEADER -->
 <!-- LISTING STARTS HERE -->
 <div id="main">
-	<div class="test-container">
+	<div class="global-container">
 		<div class="row">
 			<h2>Test list:</h2>
 		</div>
@@ -63,10 +63,10 @@
 				<c:forEach items="${openTests}" var="test" varStatus="i">
 					<tr>
 						
-						<td class="test-numb"><h5>${i.count}</h5></td>
-						<td class="test-name"><a href="<spring:url value="/test/view/${test.id}"/>"><h5>${test.name}</h5></a></td>
+						<td class="test-numb"><h4>${i.count}</h4></td>
+						<td class="test-name"><h4 style="color:#F26101">${test.name}</h4></td>
 						<td class="test-about">${test.text}</td>
-						<td class="row"><a id="add-btn" class="btn btn-primary"
+						<td class="row"><a id="add-btn" class="btn __darkblue"
 				            href="<spring:url value="/take/${test.id}"/>">Take the test</a></td>
 					</tr>
 				</c:forEach>

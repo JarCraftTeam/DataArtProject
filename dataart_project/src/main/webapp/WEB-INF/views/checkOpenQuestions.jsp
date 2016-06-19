@@ -9,26 +9,44 @@
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <title>Question Check</title>
 
-    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600"
-          rel="stylesheet" type="text/css">
     <link rel="stylesheet"
           href="<spring:url value="/resources/css/normalize.css"/>"
           type="text/css"/>
-    <link rel="stylesheet"
-          href="<spring:url value="/resources/css/skeleton.css"/>"
-          type="text/css"/>
+    
     <link rel="stylesheet"
           href="<spring:url value="/resources/css/addTest.css"/>" type="text/css"/>
+	<link rel="stylesheet"
+		href="<spring:url value="/resources/css/bootstrap.min.css"/>"
+		type="text/css" />
+	<link rel="stylesheet"
+		href="<spring:url value="/resources/css/bootstrap-theme.css"/>"
+		type="text/css" />
+	<link rel="stylesheet"
+		href="<spring:url value="/resources/fonts/casper.css"/>" type="text/css" />
+	<!-- Scripts -->
+	
+	<script 
+		src="<spring:url value="/resources/js/jquery-2.2.3.min.js"/>"></script>
+	<script 
+		src="<spring:url value="/resources/js/helper.js"/>"></script>
+		
 </head>
-<body>
 
-<h1>Fill the form, please</h1>
+<body>
+<!-- HEADER -->
+<jsp:include page="headerNonActive.jsp"></jsp:include>
+	
+<!-- /HEADER -->
+
+<div class="global-container">	
+<div class="wrapper">
+
 
 <spring:url value="/admin/saveCheckResult" var="UrlSave"/>
 <form:form id="check-form" action="${UrlSave}" method="post"
            modelAttribute="testUserAnswer" enctype="multipart/form-data">
 
-    <div class="main-container">
+  
         <h2>Choose the correct answers:</h2>
 
         <c:forEach items="${testUserAnswer.userAnswers}" var="userAnswer" varStatus="i">
@@ -46,15 +64,15 @@
                             cssClass="u-full-width" placeholder="answerText"/>
                 <form:input id="userAnswer.maxMark" path="userAnswers[${i.index}].maxMark" cssClass="u-full-width"
                             placeholder="answerText"/>
-            </div>
+            </div><br/>
 
 
             <label>Question text:</label>
-            ${userAnswer.openQuestionText}
+               <div id="UserAnswer">${userAnswer.openQuestionText}</div>
             <div class="row">
                 <div class="six columns">
                     <label>User Answer text:</label>
-                    <li>${userAnswer.answerText}</li>
+                     <div id="UserAnswer">${userAnswer.answerText}</div>
                 </div>
             </div>
 
@@ -64,24 +82,30 @@
 
                     <p>Max Mark & Mark for the question</p>
 
-                    <input class="form-control" name="userAnswer.maxMark" type="number" title="Max Mark"
-                           readonly="true"
-                           value="${userAnswer.maxMark}"/>
-                    <form:input path="userAnswers[${i.index}].mark" title="Mark" value="0"/>
-
+	                   <div id="mark-control"> <input class="form-control" name="userAnswer.maxMark" type="number" title="Max Mark"
+	                           readonly="true"
+	                           value="${userAnswer.maxMark}"/>
+	                    <form:input class="form-control" path="userAnswers[${i.index}].mark" title="Mark"/>
+						</div>
                 </div>
             </div>
         </c:forEach>
+
+
+    <button class="btn btn-primary"  type="submit">Save answers!</button>
     </div>
-
-
-    <button class="button button-primary" type="submit">Save answers!</button>
-
 </form:form>
 </div>
+
+
 <script src="<spring:url value="/resources/js/jquery-2.2.3.min.js"/>"></script>
 <script src="<spring:url value="/resources/js/dynamicAnswers.js"/>"></script>
-</div>
-</div>
+
+
+	<footer class="footer">
+		<div class="wrapper">
+			<p>Copyright: JarCraft 2016</p>
+		</div>
+	</footer>
 </body>
 </html>

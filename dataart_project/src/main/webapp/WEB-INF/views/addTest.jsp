@@ -57,9 +57,9 @@
 							<form:input id="addName" path="name" cssClass="u-full-width form-control" required="true"/>
 						</label>
 					</div>
-					<div class="activity col-xs-4 col-sm-4 col-md-2 col-lg-2">
-					    <!--<form:checkbox id="activity_check" path="priv" />
-					    <label for="activity_check">Test on/off</label>-->
+					<div class="publicity col-xs-4 col-sm-4 col-md-2 col-lg-2">
+		                <form:checkbox id="publicity_check" path="priv" />
+						<label for="publicity_check">Private</label>
 	                </div>
 					<div class="date col-xs-12 col-sm-12 col-md-4 col-lg-4">
 						<div class="row">
@@ -84,21 +84,6 @@
 						<form:textarea path="text" cssClass="form-control" rows="5" placeholder="About test" required="true"/>
 					</div>
 				</div>
-				<div class="row">
-	                <div class="publicity col-xs-6 col-sm-6 col-md-2 col-lg-2">
-		                <form:checkbox id="publicity_check" path="priv" />
-						<label for="publicity_check">Private</label>
-	                </div>
-	                <div class="copyLink-btn col-xs-6 col-sm-6 col-md-3 col-lg-3">
-	                	<button class="btn __darkblue btn-clipboard" data-clipboard-target="#link" type="button">Copy</button>
-		           
-	                </div>
-	                <div class="link col-xs-12 col-sm-12 col-md-7 col-lg-7">
-	                    <p class="">Link</p>
-	                    <input id="link" class="form-control" />
-	                </div>
-	                
-	            </div>
             </div>
  			
 		<div class="main">
