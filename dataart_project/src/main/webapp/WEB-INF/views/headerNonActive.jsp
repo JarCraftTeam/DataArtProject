@@ -9,7 +9,7 @@
 				<ul>
 					<li><a href="/dataart_project/">Go User</a></li>
 					<li><a href="/dataart_project/admin/">Test List</a></li>
-					<li><a href="#">Help</a></li>
+					<li><a href="/dataart_project/admin/help">Help</a></li>
 				</ul>
 			</div>
 		</div>

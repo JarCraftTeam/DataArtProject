@@ -36,6 +36,11 @@ public class HomeController {
 		return "redirect:/";
 	}
 	
+	@RequestMapping(value = "/about", method = RequestMethod.GET)
+	public String goAbout() {
+		return "About";
+	}
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String userHome(Model model) {
 		List<Test> allTests = testService.getTests();

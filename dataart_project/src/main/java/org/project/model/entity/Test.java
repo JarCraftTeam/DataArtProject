@@ -1,6 +1,9 @@
 package org.project.model.entity;
 
 import javax.persistence.*;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -34,9 +37,13 @@ public class Test {
 	private boolean priv;
 
 	@Column(name = "date_start")
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date date_start;
 
 	@Column(name = "date_end")
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date date_end;
 
 	@Column(name = "mark")

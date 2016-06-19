@@ -71,6 +71,11 @@ public class TestController {
 		model.addAttribute("tests", testService.getTests());
 		return "test";
 	}
+	
+	@RequestMapping(value = "/help", method = RequestMethod.GET)
+	public String goHelp() {
+		return "Help";
+	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public String goAddTest(Model model) {

@@ -2,6 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -38,7 +39,7 @@
 			<div class="main-nav">
 				<ul>
 					<li class="active"><a href="#">Test List</a></li>
-					<li><a href="#">About Us</a></li>
+					<li><a href="about/">About Us</a></li>
 				</ul>
 			</div>
 		</div>
@@ -50,24 +51,43 @@
 		<div class="row">
 			<h2>Test list:</h2>
 		</div>
-
-		<table class="test-table">
+		<jsp:useBean id="now" class="java.util.Date"/>
+		<table class="test-table-client">
 			<thead>
 				<tr>
 					<th>N</th>
 					<th>Name</th>
 					<th>About</th>
+					<th>Start Date</th>
+					<th>End Date</th>
+					<th>Action</th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach items="${openTests}" var="test" varStatus="i">
 					<tr>
-						
 						<td class="test-numb"><h4>${i.count}</h4></td>
 						<td class="test-name"><h4 style="color:#F26101">${test.name}</h4></td>
 						<td class="test-about">${test.text}</td>
-						<td class="row"><a id="add-btn" class="btn __darkblue"
-				            href="<spring:url value="/take/${test.id}"/>">Take the test</a></td>
+						<fmt:formatDate value='${test.date_start}' pattern='dd/MM/yyyy' var="dateStartFormatted" />
+						<td class="test-start"><h4>${dateStartFormatted}</h4></td>
+						<fmt:formatDate value='${test.date_end}' pattern='dd/MM/yyyy' var="dateEndFormatted" />
+						<td class="test-end"><h4>${dateEndFormatted}</h4></td>
+						<td class="test-action">
+						<c:choose>
+						<c:when test="${now < test.date_start}">
+					       Will be opened soon.
+					    </c:when>
+					    <c:when test="${now > test.date_end}">
+					        Is now closed.
+					    </c:when>
+					    <c:otherwise>
+					     <a id="add-btn" class="btn __darkblue"
+				            href="<spring:url value="/take/${test.id}"/>">Take the test</a>
+					    </c:otherwise>
+					    </c:choose>
+						</td>
+						
 					</tr>
 				</c:forEach>
 			</tbody>

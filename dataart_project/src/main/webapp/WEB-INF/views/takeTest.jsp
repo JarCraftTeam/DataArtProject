@@ -39,8 +39,8 @@
 			</h2>
 			<div class="main-nav">
 				<ul>
-					<li ><a href="/dataart_project/">Test List</a></li>
-					<li><a href="#">About Us</a></li>
+					<li><a href="/dataart_project/">Test List</a></li>
+					<li><a href="/dataart_project/about">About Us</a></li>
 				</ul>
 			</div>
 		</div>

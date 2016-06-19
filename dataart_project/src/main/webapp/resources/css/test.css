@@ -16,14 +16,37 @@ table.test-table{
 	width: 90vw;
 }
 
-table td.test-numb{
+table.test-table td.test-numb{
 	width:5%;
 }
-table td.test-name{
+table.test-table td.test-name{
 	width:15%;
 }
-table td.test-about{
+table.test-table td.test-about{
 	width:80%;
+}
+
+table.test-table-client{
+	width: 90vw;
+}
+
+table.test-table-client td.test-numb{
+	width:5%;
+}
+table.test-table-client td.test-name{
+	width:15%;
+}
+table.test-table-client td.test-about{
+	width:50%;
+}
+table.test-table-client td.test-start{
+	width:10%;
+}
+table.test-table-client td.test-end{
+	width:10%;
+}
+table.test-table-client td.test-action{
+	width:10%;
 }
 
 .functions{
