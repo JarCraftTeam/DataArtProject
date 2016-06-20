@@ -125,7 +125,7 @@
 							<div class="row">
 								<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-md-offset-2">
 								<br>
-									<form:input cssClass="form-control" path="questions[0].mark" type="number" min="0" max="9" value="1" required="true"/>
+									<form:input cssClass="form-control input-number" path="questions[0].mark" type="number" min="0" max="9" value="1" required="true"/>
 								</div>	
 							</div>	
 					</div>	

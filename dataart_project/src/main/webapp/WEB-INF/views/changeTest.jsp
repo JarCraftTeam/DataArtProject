@@ -159,7 +159,7 @@
 							<div class="row">
 								<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-md-offset-2">
 									<br>
-									<form:input class="form-control" path="questions[${i.index}].mark" type="number" min="0" max="9" required="true"/>
+									<form:input class="form-control input-number" path="questions[${i.index}].mark" type="number" min="0" max="9" required="true"/>
 								</div>	
 							</div>	
 					</div>	

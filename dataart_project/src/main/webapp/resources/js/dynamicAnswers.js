@@ -49,7 +49,7 @@ $(document).ready(function() {
 		+'<div class="row">'
 		+'<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-md-offset-2">'
     	+'<br>'	
-		+'<input class="form-control" name="questions['+x+'].mark" type="number" min="0" max="9" value="1" required="true"/>'
+		+'<input class="form-control input-number" name="questions['+x+'].mark" type="number" min="0" max="9" value="1" required="true"/>'
     	+'</div>'
     	+'</div>'
 		+'</div>'
@@ -195,8 +195,8 @@ $(document).ready(function() {
     }else {
     	$(this).closest(".row").siblings(".answer-container").find("input:checkbox").removeAttr('checked');
     }
-   });
-
+    });
+    $(document).on('keypress', '.input-number', false);
     
 }); 
 
