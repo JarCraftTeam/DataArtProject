@@ -9,12 +9,19 @@
 	<title>Help</title>
 
 	<!-- Styles -->
-	<link rel="stylesheet"
+		<!-- Styles -->
+<link rel="stylesheet"
+		href="<spring:url value="/resources/css/normalize.css"/>"
+		type="text/css" />
+<link rel="stylesheet"
+		href="<spring:url value="/resources/fonts/casper.css"/>" type="text/css" />
+<link rel="stylesheet"
 		href="<spring:url value="/resources/css/bootstrap.min.css"/>"
 		type="text/css" />
-	<link rel="stylesheet"
+<link rel="stylesheet"
 		href="<spring:url value="/resources/css/bootstrap-theme.css"/>"
 		type="text/css" />
+	
 	<link rel="stylesheet"
 		href="<spring:url value="/resources/css/results.css"/>" type="text/css" />
 
@@ -34,6 +41,13 @@
 			<h2 class="fcolor-sky">
 				Admin Panel
 			</h2>
+			<div class="admin-panel">
+				<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+				<a id="logout" href="#">Exit Admin Panel</a>
+				<form id="logout-form" action="<c:url value="/logout"/>" method="post">
+					<sec:csrfInput/>
+				</form>
+			</div>
 			<div class="main-nav">
 				<ul>
 					<li><a href="/">Go User</a></li>
@@ -46,8 +60,18 @@
 	
 	<!-- LISTING STARTS HERE -->
 	<div id="main">
-		<div class="test-container">
-		<h1>Help:</h1>
+		<div class="global-container">
+		<div class="row wrapper">
+		<h2>Help</h2>
+			<h4>It's a page to help Admins!
+			So if you are here it means you're admin and have some questions.
+			<ul>Here's some things you may need to know:
+			<li>You can create, copy, edit, delete tests and rank some answers. </li>
+			<li>You can add pictures to your tests, but an image CANNOT be bigger that 2MB.</li>
+			<li>The number six is magic. Just remember that :)</li>
+			</ul>
+			If you still have some problems and/or questions, feel free to contact us on help@jarcraft.com
+			</h4>
 		</div>
 	</div>
 	

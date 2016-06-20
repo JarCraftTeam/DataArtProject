@@ -8,14 +8,21 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>JarCraft Project</title>
-<link rel="stylesheet"
-		href="<spring:url value="/resources/css/bootstrap.min.css"/>"
-		type="text/css" />
+
+<!-- STYLES -->
 	<link rel="stylesheet"
-		href="<spring:url value="/resources/css/bootstrap-theme.css"/>"
-		type="text/css" />
+			href="<spring:url value="/resources/css/normalize.css"/>"
+			type="text/css" />
 	<link rel="stylesheet"
-		href="<spring:url value="/resources/css/test.css"/>" type="text/css" />
+			href="<spring:url value="/resources/fonts/casper.css"/>" type="text/css" />
+	<link rel="stylesheet"
+			href="<spring:url value="/resources/css/bootstrap.min.css"/>"
+			type="text/css" />
+	<link rel="stylesheet"
+			href="<spring:url value="/resources/css/bootstrap-theme.css"/>"
+			type="text/css" />
+	<link rel="stylesheet"
+			href="<spring:url value="/resources/css/test.css"/>" type="text/css" />
 
 	<!-- Scripts -->
 	

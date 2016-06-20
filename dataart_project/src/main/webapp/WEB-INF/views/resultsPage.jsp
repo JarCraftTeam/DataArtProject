@@ -10,6 +10,11 @@
 
 	<!-- Styles -->
 	<link rel="stylesheet"
+		href="<spring:url value="/resources/css/normalize.css"/>"
+		type="text/css" />
+	<link rel="stylesheet"
+		href="<spring:url value="/resources/fonts/casper.css"/>" type="text/css" />
+	<link rel="stylesheet"
 		href="<spring:url value="/resources/css/bootstrap.min.css"/>"
 		type="text/css" />
 	<link rel="stylesheet"
@@ -33,6 +38,7 @@
 	
 	<!-- LISTING STARTS HERE -->
 	<div id="main">
+	<div class="global-container">
 		<div class="test-container">
 		<h1 class="results">Results for "${test.name}"</h1>
 		<a class="btn __darkblue" href="downloadExcel/${test.id}"><span class="glyphicon glyphicon-floppy-disk"></span> Export to Excel</a>
@@ -73,6 +79,7 @@
 
 			</table>
 		</div>
+	</div>
 	</div>
 	
 	<footer class="footer">

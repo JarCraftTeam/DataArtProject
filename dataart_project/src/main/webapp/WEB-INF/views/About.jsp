@@ -32,6 +32,9 @@
 			<h2 class="fcolor-sky">
 				User panel
 			</h2>
+			<div class="admin-panel">
+				<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span><a href="admin/">Go Admin Panel</a>
+			</div>
 			<div class="main-nav">
 				<ul>
 					<li><a href="/">Test List</a></li>
@@ -44,8 +47,17 @@
 <!-- LISTING STARTS HERE -->
 <div id="main">
 	<div class="global-container">
-		<div class="row">
+		<div class="row wrapper">
 			<h2>About us:</h2>
+				<h4>Hello! We are happy to see you here, dear friend!
+				You may wonder what this site is about? Let us tell you!<br/>
+				This cozy place is made so everyone can enroll for a free "Vitaliy Lacour" IT courses!<br/>
+				Because courses are FREE everyone needs to pass the test first. Sorry, places are limited :)<br/><br/><br/>
+				<center>So good luck and may the force be with you!</center> 
+				</h4>
+				
+			<p> Hey! Don't be afraid, it's easy to take the test! Just choose the one you need on the "Test List" page, fill the ankete and answer questions! As easy as that!
+			Just don't forget to push "Submit" :)</p>
 		</div>
 
 		

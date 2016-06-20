@@ -24,8 +24,8 @@
 	
 	<script 
 		src="<spring:url value="/resources/js/jquery-2.2.3.min.js"/>"></script>
-	<!--  <script 
-		src="<spring:url value="/resources/js/helper.js"/>"></script>-->
+	 <script 
+		src="<spring:url value="/resources/js/helper.js"/>"></script>
 		
 </head>
 <body>

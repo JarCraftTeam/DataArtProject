@@ -226,6 +226,11 @@ label {
 	margin-right: 6px;
 }
 
+h4 {
+   text-align: left;
+   padding: 6px;
+   line-height:2em;
+}
  /*-----Jar Theme End-----*/
  
 .btn-default,

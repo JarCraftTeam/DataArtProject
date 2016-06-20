@@ -60,10 +60,10 @@
           </label>
         </div>
         <c:if test="${param.error != null}">
-        	<p>Invalid Username and Password.</p>
+        	<h4>Invalid Username and Password.</h4>
         </c:if>
         <c:if test="${param.logout != null}">
-        	<p>You have successfully been logged out.</p>
+        	<h4>You have successfully been logged out.</h4>
         </c:if>
         <sec:csrfInput/>	
         <button class="btn __darkblue btn-block" type="submit">Sign in</button>

@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Index</title>
 <link rel="stylesheet"
 	href="<spring:url value="/resources/css/index.css"/>" type="text/css" />
 </head>
