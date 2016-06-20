@@ -63,7 +63,7 @@
 					    <label for="activity_check">Test on/off</label>-->
 	                </div>
 					<div class="date col-xs-12 col-sm-12 col-md-4 col-lg-4">
-						<div class="row">
+						<div class="row input-daterange">
 							<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 								<fmt:formatDate value='${test.date_start}' pattern='dd/MM/yyyy' var="dateStartFormatted" />
 								<label><span>Start date:</span>
@@ -98,7 +98,7 @@
 	                </div>
 	                <div class="link col-xs-12 col-sm-12 col-md-7 col-lg-7">
 	                    <p class="">Link</p>
-	                    <input id="link" class="form-control" value="http://localhost:8080/dataart_project/take/${test.id}"/>
+	                    <input id="link" class="form-control" value="http://metlinov.homeserver.com:8080/take/${test.id}"/>
 	                </div>
 	                
 	            </div>
@@ -159,7 +159,7 @@
 							<div class="row">
 								<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-md-offset-2">
 									<br>
-									<form:input class="form-control" path="questions[${i.index}].mark" type="number" required="true"/>
+									<form:input class="form-control" path="questions[${i.index}].mark" type="number" min="0" max="9" required="true"/>
 								</div>	
 							</div>	
 					</div>	
@@ -230,11 +230,12 @@
 	<script type="text/javascript"
 		src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment-with-locales.min.js"></script>
 	<script type="text/javascript"
-		src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+		src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/js/bootstrap-datepicker.min.js"></script>
 	<script>
 	$(document).ready(function(){
-		$("#dateStart").datetimepicker({format: 'DD/MM/YYYY'});
-		$("#dateEnd").datetimepicker({format: 'DD/MM/YYYY'});
+		$('.input-daterange').datepicker({
+		    format: "dd/mm/yyyy"
+		});
 	});
 	</script>
 </body>

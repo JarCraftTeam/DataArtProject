@@ -27,6 +27,7 @@
 		type="text/css" />
 <link rel="stylesheet"
 	href="<spring:url value="/resources/css/addTest.css"/>" type="text/css" />
+
 	
 	<!-- Scripts -->
 	
@@ -34,6 +35,7 @@
 <script src="<spring:url value="/resources/js/helper.js"/>"></script>
 <script src="<spring:url value="/resources/js/jquery-2.2.3.min.js"/>"></script>
 <script src="<spring:url value="/resources/js/dynamicAnswers.js"/>"></script>
+<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
 	
 </head>
 
@@ -62,7 +64,7 @@
 						<label for="publicity_check">Private</label>
 	                </div>
 					<div class="date col-xs-12 col-sm-12 col-md-4 col-lg-4">
-						<div class="row">
+						<div class="row input-daterange">
 							<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 								<label><span>Start date:</span>
 									<form:input id="dateStart" path="date_start" type="text"
@@ -123,7 +125,7 @@
 							<div class="row">
 								<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-md-offset-2">
 								<br>
-									<form:input cssClass="form-control" path="questions[0].mark" type="number" value="1" required="true"/>
+									<form:input cssClass="form-control" path="questions[0].mark" type="number" min="0" max="9" value="1" required="true"/>
 								</div>	
 							</div>	
 					</div>	
@@ -184,11 +186,12 @@
 	<script type="text/javascript"
 		src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment-with-locales.min.js"></script>
 	<script type="text/javascript"
-		src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+		src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/js/bootstrap-datepicker.min.js"></script>
 	<script>
 	$(document).ready(function(){
-		$("#dateStart").datetimepicker({format: 'DD/MM/YYYY'});
-		$("#dateEnd").datetimepicker({format: 'DD/MM/YYYY'});
+		$('.input-daterange').datepicker({
+		    format: "dd/mm/yyyy"
+		});
 	});
 	</script>
 </body>

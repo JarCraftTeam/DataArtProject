@@ -170,7 +170,6 @@ form p {
 	height:200px;
 }
 .qst img {
-	max-height: 150px;
 	width: 100%;
 	height: auto;
 }
@@ -179,5 +178,8 @@ form p {
 	margin-bottom:15px;
 }
 .answ img{
-	max-height:100px;
+	width:100%;
+}
+textarea {
+    resize: none;
 }

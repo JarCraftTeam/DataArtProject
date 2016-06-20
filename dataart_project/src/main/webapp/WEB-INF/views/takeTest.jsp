@@ -95,7 +95,7 @@
 	        		<c:forEach items="${question.answers}" var="answer" varStatus="j">
 	        			<li>
 	        				<form:radiobutton path="test.questions[${i.index}].userAnswers" id="ans${i.count}-${j.count}" cssClass="radio-ans" 
-	        				value="${answer.id}"/>
+	        				value="${answer.id}" required="true"/>
 			        		<label for="ans${i.count}-${j.count}">${answer.text}</label>
 			        		<c:if test="${answer.encryptedImage != 'null'}">
 								<img class="ans" src="data:image/jpeg;base64,${answer.encryptedImage}" alt="No question image">
@@ -120,7 +120,7 @@
 	        	</c:when>
 	        	<c:when test="${question.type.id==3}">
 	        		<form:textarea path="test.questions[${i.index}].userAnswers" itemValue="id" type="text"
-	        		 cssClass="form-control" placeholder="Enter your answer"/>
+	        		 cssClass="form-control" placeholder="Enter your answer" required="true"/>
 	        	</c:when>
 	        	</c:choose>
 	        	</div>

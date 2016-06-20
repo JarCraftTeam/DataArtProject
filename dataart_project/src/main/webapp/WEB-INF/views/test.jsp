@@ -141,9 +141,10 @@
              	<textarea id="textarea" name="about" class="form-control" placeholder="Info about new test" required="true"></textarea>
             </li>
             <li class="form-checkbox">
-           	 	<input type="radio" name="publicity_check" value="1">Private<br/>
-           	 	<input type="radio" name="publicity_check" value="0">Public<br/>
+           	 	<input type="radio" name="publicity_check" value="1" required="true">Private<br/>
+           	 	<input type="radio" name="publicity_check" value="0" required="true">Public<br/>
             </li>
+            <div class="input-daterange">
             <li class="combine __1">
             	<label>Start date: (mm/dd/yyyy)</label>
            		<input id="dateStart" name="date_start" type="text" class="form-control" required="true"/>
@@ -152,6 +153,7 @@
             	<label>End date: (mm/dd/yyyy)</label>
            		<input id="dateEnd" name="date_end" type="text" class="form-control" required="true"/>
             </li>
+            </div>
             <li>
             	<button class="btn __orange button-primary" type="submit">Create copy!</button>
             </li>
@@ -183,17 +185,14 @@
 <script type="text/javascript"
 		src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment-with-locales.min.js"></script>
 <script type="text/javascript"
-		src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+		src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/js/bootstrap-datepicker.min.js"></script>
 <script>
 $(document).ready(function(){
-	$("#dateStart").datetimepicker({format: 'DD/MM/YYYY',widgetPositioning: {
-        vertical: 'bottom',
-        horizontal: 'auto'
-    }});
-	$("#dateEnd").datetimepicker({format: 'DD/MM/YYYY',widgetPositioning: {
-        vertical: 'bottom',
-        horizontal: 'auto'
-    }});
+	$(document).ready(function(){
+		$('.input-daterange').datepicker({
+		    format: "dd/mm/yyyy"
+		});
+	});
 	$(".del-btn").click(function(e){
 		e.preventDefault();
 		var id=$(this).children("i").attr("id");

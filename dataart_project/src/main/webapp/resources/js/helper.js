@@ -1,4 +1,4 @@
-$(document).ready(function() { 
+/*$(document).ready(function() { 
 	$(function () { 
 		var stickyTop = $('.main-nav').offset().top; 
 		
@@ -10,4 +10,4 @@ $(document).ready(function() {
 			} 
 		}); 
 	});
-});
+});*/

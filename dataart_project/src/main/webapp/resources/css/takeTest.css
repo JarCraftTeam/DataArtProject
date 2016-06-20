@@ -74,3 +74,6 @@ img.ans {
 	max-height:100px;
 	margin: 10px;
 }
+textarea {
+    resize: none;
+}

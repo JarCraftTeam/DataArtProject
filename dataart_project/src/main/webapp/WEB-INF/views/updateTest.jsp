@@ -35,24 +35,7 @@
 		
 </head>
 <body>
-	<!-- HEADER -->
-	<div id="header">
-		<div class="wrapper">
-			<!-- <img src="/resources/img/logo.png" alt="" /> -->
-			<h1 class="fcolor-sky">IT School</h1>
-			<div class="admin-panel">
-				<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>Exit Admin Panel
-			</div>
-			<div class="main-nav">
-				<ul>
-					<li><a href="#">Home</a></li>
-					<li ><a href="#">Test List</a></li>
-					<li><a href="#">Help</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
-	<!-- /HEADER -->
+<jsp:include page="headerNonActive.jsp"></jsp:include>
 <div class="test-container">
 	<div class="main-container">
 		<h2>Test information:</h2>
