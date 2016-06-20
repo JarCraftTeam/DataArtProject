@@ -204,12 +204,14 @@ public class TestController {
 	private Test compareImages(Test testOld, Test testNew) {
 		for (int i = 0; i < testOld.getQuestions().size(); i++) {
 			if ((i < testOld.getQuestions().size()) && (i < testNew.getQuestions().size()))
-				if (testOld.getQuestions().get(i).getPicture() != null)
+				if ((testOld.getQuestions().get(i).getPicture() != null)
+						&& (testNew.getQuestions().get(i).getPicture() == null))
 					testNew.getQuestions().get(i).setPicture(testOld.getQuestions().get(i).getPicture());
 			for (int j = 0; j < testOld.getQuestions().get(i).getAnswers().size(); j++) {
 				if ((j < testOld.getQuestions().get(i).getAnswers().size())
 						&& (j < testNew.getQuestions().get(i).getAnswers().size()))
-					if (testOld.getQuestions().get(i).getAnswers().get(j).getPicture() != null)
+					if ((testOld.getQuestions().get(i).getAnswers().get(j).getPicture() != null)
+							&& (testNew.getQuestions().get(i).getAnswers().get(j).getPicture() == null))
 						testNew.getQuestions().get(i).getAnswers().get(j)
 								.setPicture(testOld.getQuestions().get(i).getAnswers().get(j).getPicture());
 			}
